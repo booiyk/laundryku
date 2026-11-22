@@ -20,7 +20,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--foam); background: var(--deep);
-  font-size: 17px; line-height: 1.55;
+  font-size: 17px; line-height: 1.55; overflow-x: clip;
 }
 ::selection { background: var(--sun); color: var(--ink); }
 a { color: inherit; }
@@ -208,7 +208,7 @@ main { max-width: 1120px; margin: 0 auto; padding: 0 24px 48px; }
 .contact p { margin-top: 10px; color: var(--aqua); }
 .contact a { color: var(--sun); font-weight: 700; }
 .giant {
-  font-size: clamp(64px, 14vw, 190px); font-weight: 800; line-height: 1;
+  font-size: clamp(44px, 13vw, 190px); font-weight: 800; line-height: 1;
   text-align: center; color: transparent; -webkit-text-stroke: 2px rgba(242, 250, 248, 0.35);
   text-transform: uppercase; padding: 56px 0 8px; user-select: none;
 }
