@@ -33,10 +33,17 @@ h2 { font-size: clamp(36px, 5vw, 64px); margin-bottom: 12px; }
 /* ---------- Navigasi: bar tipis blur, ala Apple ---------- */
 .site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 20; height: 48px;
+  background: transparent;
+  transition: transform 0.4s ease, background-color 0.4s ease;
+}
+/* Saat sudah di-scroll: bar gelap blur seperti semula */
+.site-header.scrolled {
   background: rgba(22, 22, 23, 0.8);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
 }
+/* Scroll ke bawah: header naik sembunyi; scroll ke atas: muncul lagi */
+.site-header.hidden { transform: translateY(-100%); }
 .site-header-inner {
   display: flex; align-items: center; gap: 28px;
   max-width: 1024px; margin: 0 auto; padding: 0 22px; height: 48px;
@@ -225,4 +232,5 @@ footer .foot-links a:hover { text-decoration: underline; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .site-header { transition: none; }
 }

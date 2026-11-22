@@ -108,3 +108,23 @@ document.querySelectorAll("[data-code]").forEach((btn) =>
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 })();
+
+// Header v5.1: transparan di atas, gelap saat scroll, sembunyi saat scroll ke bawah,
+// muncul lagi saat scroll ke atas
+(function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  var lastY = window.scrollY || 0;
+  var ticking = false;
+  function update() {
+    var y = window.scrollY || 0;
+    if (y > 10) { header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); }
+    if (y > lastY && y > 120) { header.classList.add('hidden'); }
+    else if (y < lastY) { header.classList.remove('hidden'); }
+    lastY = y;
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+})();
