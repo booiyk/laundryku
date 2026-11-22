@@ -83,7 +83,7 @@ try {
   if (window.Zdog) {
     const illo = new Zdog.Illustration({
       element: '#washer', dragRotate: true,
-      rotate: { x: -0.12, y: 0.25 }, zoom: 1.9,
+      rotate: { x: -0.12, y: 0.25 }, zoom: 2.4,
     });
     const BLUE = '#f5f5f7', BLUE_D = '#d2d2d7', WHITE = '#ffffff', DARK = '#1d1d1f', TEAL = '#6e6e73';
 
