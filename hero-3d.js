@@ -1,5 +1,5 @@
-// LaundryKu v2 — hero 3D
-// Three.js: gelembung sabun melayang | Zdog: mesin cuci 3D | Flubber: blob morphing
+// LaundryKu v4 — hero 3D (monokrom, gaya Apple)
+// Three.js: gelembung sabun melayang | Zdog: mesin cuci 3D
 // Semua library di-vendor lokal dari repo yang sudah di-install (assets/vendor/).
 // Kalau WebGL / salah satu library gagal, halaman tetap jalan normal (try/catch + guard).
 import * as THREE from 'three';
@@ -21,7 +21,7 @@ try {
   const key = new THREE.DirectionalLight(0xffffff, 1.4);
   key.position.set(5, 8, 6);
   scene.add(key);
-  const fill = new THREE.PointLight(0xffc700, 22, 40);
+  const fill = new THREE.PointLight(0xffffff, 14, 40);
   fill.position.set(-6, -2, 4);
   scene.add(fill);
 
@@ -31,8 +31,8 @@ try {
   const bubbles = [];
   for (let i = 0; i < COUNT; i++) {
     const mat = new THREE.MeshPhysicalMaterial({
-      color: 0xdff2ff, metalness: 0, roughness: 0.08,
-      transparent: true, opacity: 0.22, clearcoat: 1, clearcoatRoughness: 0.15,
+      color: 0xffffff, metalness: 0, roughness: 0.08,
+      transparent: true, opacity: 0.18, clearcoat: 1, clearcoatRoughness: 0.15,
     });
     const b = new THREE.Mesh(geo, mat);
     const r = 0.25 + Math.random() * 0.65;
@@ -85,12 +85,12 @@ try {
       element: '#washer', dragRotate: true,
       rotate: { x: -0.12, y: 0.25 }, zoom: 1.05,
     });
-    const BLUE = '#eef6f3', BLUE_D = '#c8ddd8', WHITE = '#ffffff', DARK = '#0a3542', TEAL = '#007a7a';
+    const BLUE = '#f5f5f7', BLUE_D = '#d2d2d7', WHITE = '#ffffff', DARK = '#1d1d1f', TEAL = '#6e6e73';
 
     // Badan mesin
     new Zdog.Box({ addTo: illo, width: 150, height: 170, depth: 96, stroke: false, color: BLUE, leftFace: BLUE_D, rightFace: BLUE_D, topFace: '#2f7fe8', bottomFace: BLUE_D });
     // Panel atas
-    new Zdog.Box({ addTo: illo, width: 150, height: 26, depth: 96, stroke: false, color: '#ffc700', translate: { y: -72 } });
+    new Zdog.Box({ addTo: illo, width: 150, height: 26, depth: 96, stroke: false, color: '#1d1d1f', translate: { y: -72 } });
     // Tombol-tombol panel
     [-48, -28, -8].forEach((x) => {
       new Zdog.Cylinder({ addTo: illo, diameter: 13, length: 6, stroke: false, color: TEAL, rotate: { x: Math.PI / 2 }, translate: { x, y: -72, z: 50 } });
@@ -98,7 +98,7 @@ try {
     new Zdog.Box({ addTo: illo, width: 34, height: 12, depth: 4, stroke: false, color: DARK, translate: { x: 44, y: -72, z: 50 } });
     // Pintu bundar
     new Zdog.Cylinder({ addTo: illo, diameter: 96, length: 10, stroke: false, color: WHITE, rotate: { x: Math.PI / 2 }, translate: { y: 8, z: 50 } });
-    new Zdog.Ellipse({ addTo: illo, diameter: 66, stroke: false, color: '#8fd0c8', translate: { y: 8, z: 56 } });
+    new Zdog.Ellipse({ addTo: illo, diameter: 66, stroke: false, color: '#d2d2d7', translate: { y: 8, z: 56 } });
     new Zdog.Ellipse({ addTo: illo, diameter: 26, stroke: false, color: '#ffffff', translate: { x: -14, y: -8, z: 57 } });
     // Kaki
     [-62, 62].forEach((x) => {
@@ -106,7 +106,7 @@ try {
     });
     // Gelembung kecil di atas mesin
     [[-70, -108, 0, 10], [60, -116, 10, 13], [20, -128, -6, 8]].forEach(([x, y, z, d]) => {
-      new Zdog.Ellipse({ addTo: illo, diameter: d, stroke: false, color: '#ffe9a8', translate: { x, y, z } });
+      new Zdog.Ellipse({ addTo: illo, diameter: d, stroke: false, color: '#e8e8ed', translate: { x, y, z } });
     });
 
     if (reducedMotion) {
@@ -123,36 +123,4 @@ try {
   }
 } catch (err) {
   console.warn('Zdog dimatikan:', err);
-}
-
-/* ---------- 3. Blob morphing Flubber ---------- */
-try {
-  if (window.flubber) {
-    const pathEl = document.getElementById('blob-path');
-    const blobs = [
-      'M200 30 C280 30 360 100 360 200 C360 300 290 370 200 370 C110 370 40 300 40 200 C40 100 120 30 200 30 Z',
-      'M200 45 C300 20 375 120 355 205 C335 295 285 360 195 355 C105 350 30 290 45 195 C60 100 110 65 200 45 Z',
-      'M200 25 C275 55 370 90 365 200 C360 305 300 375 200 365 C100 355 35 295 40 195 C45 95 125 0 200 25 Z',
-    ];
-    let i = 0;
-    if (reducedMotion) {
-      pathEl.setAttribute('d', blobs[0]);
-    } else {
-      (function morph() {
-        const from = blobs[i % blobs.length];
-        const to = blobs[(i + 1) % blobs.length];
-        const interp = flubber.interpolate(from, to, { maxSegmentLength: 8 });
-        const start = performance.now(), dur = 2600;
-        (function frame(now) {
-          const p = Math.min((now - start) / dur, 1);
-          const eased = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
-          pathEl.setAttribute('d', interp(eased));
-          if (p < 1) requestAnimationFrame(frame);
-          else { i++; setTimeout(morph, 400); }
-        })(start);
-      })();
-    }
-  }
-} catch (err) {
-  console.warn('Flubber dimatikan:', err);
 }
