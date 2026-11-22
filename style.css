@@ -92,10 +92,10 @@ section { padding: 32px 0; scroll-margin-top: 48px; }
 .stage {
   position: relative; z-index: 1;
   width: min(260px, 84vw); aspect-ratio: 1; margin: 12px auto 0;
-  border-radius: 50%;
+  border-radius: 50%; overflow: hidden;
   background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.06) 55%, transparent 72%);
 }
-#washer { width: 100%; height: 100%; cursor: grab; display: block; }
+#washer { width: 100%; max-width: 100%; height: 100%; margin: 0 auto; cursor: grab; display: block; }
 #washer:active { cursor: grabbing; }
 .stage-caption { color: var(--gray-light); font-size: 14px; margin-top: 2px; }
 
@@ -221,18 +221,18 @@ footer .foot-links a:hover { text-decoration: underline; }
 @media (max-width: 900px) {
   body { font-size: 16px; }
   .site-header nav { display: none; }
-  section { padding: 20px 0; }
-  .hero { padding: 48px 0 16px; }
-  h1 { font-size: clamp(30px, 8vw, 38px); }
-  h2 { font-size: clamp(24px, 6vw, 30px); }
-  .lead { font-size: 17px; }
-  .hero .subhead { font-size: 17px; }
-  .stage { width: min(220px, 60vw); }
-  .total-box strong { font-size: 34px; }
-  .quotes blockquote p { font-size: 18px; }
-  .faq summary { font-size: 18px; }
-  .tile h2 { font-size: 28px; }
-  .tile p { font-size: 16px; }
+  section { padding: 18px 0; }
+  .hero { padding: 44px 0 14px; }
+  h1 { font-size: clamp(28px, 7.5vw, 34px); }
+  h2 { font-size: clamp(22px, 5.5vw, 28px); }
+  .lead { font-size: 16px; }
+  .hero .subhead { font-size: 16px; }
+  .stage { width: min(200px, 55vw); }
+  .total-box strong { font-size: 32px; }
+  .quotes blockquote p { font-size: 17px; }
+  .faq summary { font-size: 17px; }
+  .tile h2 { font-size: 26px; }
+  .tile p { font-size: 15px; }
   .how-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
   .how-grid h3 { font-size: 19px; }
   .how-grid p { font-size: 14px; }
@@ -241,9 +241,9 @@ footer .foot-links a:hover { text-decoration: underline; }
   .gallery-grid { grid-template-columns: 1fr; }
   .gallery figcaption { font-size: 14px; }
   .tile { min-height: 0; padding: 16px 14px; }
-  .menu-row { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
-  .menu-row h3 { font-size: 20px; }
-  .menu-row .price { grid-row: auto; grid-column: 1; font-size: 20px; }
+  .menu-row { grid-template-columns: 1fr; gap: 2px; padding: 8px 0; }
+  .menu-row h3 { font-size: 19px; }
+  .menu-row .price { grid-row: auto; grid-column: 1; font-size: 19px; }
   .menu-row .price span { font-size: 14px; }
   .menu-row p { grid-column: 1; font-size: 14px; }
   .pricing th, .pricing td { font-size: 16px; }
@@ -255,7 +255,7 @@ footer .foot-links a:hover { text-decoration: underline; }
 }
 @media (max-width: 520px) {
   .how-grid { grid-template-columns: 1fr; }
-  .hero-links a { font-size: 18px; }
+  .hero-links a { font-size: 17px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
