@@ -21,7 +21,7 @@ try {
   const key = new THREE.DirectionalLight(0xffffff, 1.4);
   key.position.set(5, 8, 6);
   scene.add(key);
-  const fill = new THREE.PointLight(0x7dd3fc, 30, 40);
+  const fill = new THREE.PointLight(0xffc700, 22, 40);
   fill.position.set(-6, -2, 4);
   scene.add(fill);
 
@@ -85,12 +85,12 @@ try {
       element: '#washer', dragRotate: true,
       rotate: { x: -0.12, y: 0.25 }, zoom: 1.05,
     });
-    const BLUE = '#0b57d0', BLUE_D = '#0842a0', WHITE = '#eef5ff', DARK = '#14202e', TEAL = '#007a7a';
+    const BLUE = '#eef6f3', BLUE_D = '#c8ddd8', WHITE = '#ffffff', DARK = '#0a3542', TEAL = '#007a7a';
 
     // Badan mesin
     new Zdog.Box({ addTo: illo, width: 150, height: 170, depth: 96, stroke: false, color: BLUE, leftFace: BLUE_D, rightFace: BLUE_D, topFace: '#2f7fe8', bottomFace: BLUE_D });
     // Panel atas
-    new Zdog.Box({ addTo: illo, width: 150, height: 26, depth: 96, stroke: false, color: WHITE, translate: { y: -72 } });
+    new Zdog.Box({ addTo: illo, width: 150, height: 26, depth: 96, stroke: false, color: '#ffc700', translate: { y: -72 } });
     // Tombol-tombol panel
     [-48, -28, -8].forEach((x) => {
       new Zdog.Cylinder({ addTo: illo, diameter: 13, length: 6, stroke: false, color: TEAL, rotate: { x: Math.PI / 2 }, translate: { x, y: -72, z: 50 } });
@@ -98,7 +98,7 @@ try {
     new Zdog.Box({ addTo: illo, width: 34, height: 12, depth: 4, stroke: false, color: DARK, translate: { x: 44, y: -72, z: 50 } });
     // Pintu bundar
     new Zdog.Cylinder({ addTo: illo, diameter: 96, length: 10, stroke: false, color: WHITE, rotate: { x: Math.PI / 2 }, translate: { y: 8, z: 50 } });
-    new Zdog.Ellipse({ addTo: illo, diameter: 66, stroke: false, color: '#9fd8e8', translate: { y: 8, z: 56 } });
+    new Zdog.Ellipse({ addTo: illo, diameter: 66, stroke: false, color: '#8fd0c8', translate: { y: 8, z: 56 } });
     new Zdog.Ellipse({ addTo: illo, diameter: 26, stroke: false, color: '#ffffff', translate: { x: -14, y: -8, z: 57 } });
     // Kaki
     [-62, 62].forEach((x) => {
@@ -106,7 +106,7 @@ try {
     });
     // Gelembung kecil di atas mesin
     [[-70, -108, 0, 10], [60, -116, 10, 13], [20, -128, -6, 8]].forEach(([x, y, z, d]) => {
-      new Zdog.Ellipse({ addTo: illo, diameter: d, stroke: false, color: '#bfe9ff', translate: { x, y, z } });
+      new Zdog.Ellipse({ addTo: illo, diameter: d, stroke: false, color: '#ffe9a8', translate: { x, y, z } });
     });
 
     if (reducedMotion) {
