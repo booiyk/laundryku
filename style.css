@@ -95,7 +95,7 @@ section { padding: 32px 0; scroll-margin-top: 48px; }
   border-radius: 50%; overflow: hidden;
   background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.06) 55%, transparent 72%);
 }
-#washer { width: 100%; max-width: 100%; height: 100%; margin: 0 auto; cursor: grab; display: block; }
+#washer { width: 100%; max-width: 100%; height: auto !important; aspect-ratio: 1; margin: 0 auto; cursor: grab; display: block; }
 #washer:active { cursor: grabbing; }
 .stage-caption { color: var(--gray-light); font-size: 14px; margin-top: 2px; }
 

@@ -84,7 +84,7 @@ try {
     const isMobileW = window.innerWidth < 640;
     const illo = new Zdog.Illustration({
       element: '#washer', dragRotate: true,
-      rotate: { x: -0.06, y: 0.12 }, zoom: isMobileW ? 1.3 : 1.9,
+      rotate: { x: -0.06, y: 0.12 }, zoom: isMobileW ? 1.7 : 1.9,
     });
     const BLUE = '#f5f5f7', BLUE_D = '#d2d2d7', WHITE = '#ffffff', DARK = '#1d1d1f', TEAL = '#6e6e73';
 
