@@ -7,6 +7,9 @@
 <meta name="description" content="LaundryKu — laundry kiloan di Cirebon. Cuci kering, cuci + setrika, express 6 jam. Antar-jemput gratis, lacak cucian online, order via WhatsApp.">
 <meta name="theme-color" content="#0b57d0">
 <link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "./assets/vendor/three.module.js" } }
+</script>
 </head>
 <body>
 <header class="site-header">
@@ -22,8 +25,10 @@
 </header>
 
 <main id="top">
-  <!-- Hero -->
+  <!-- Hero — gelembung 3D Three.js + blob morph Flubber + mesin cuci Zdog -->
   <section class="hero">
+    <canvas id="bubbles" aria-hidden="true"></canvas>
+    <svg id="blob" viewBox="0 0 400 400" aria-hidden="true"><path id="blob-path" fill="#cfe6ff" opacity="0.55" d="M200 30 C280 30 360 100 360 200 C360 300 290 370 200 370 C110 370 40 300 40 200 C40 100 120 30 200 30 Z"></path></svg>
     <div class="hero-text">
       <p class="eyebrow">Laundry kiloan &bull; Cirebon</p>
       <h1>Cucian bersih, wangi, selesai tepat waktu.</h1>
@@ -39,6 +44,7 @@
       </ul>
     </div>
     <div class="hero-card" aria-label="Contoh order">
+      <canvas id="washer" width="340" height="260" aria-label="Ilustrasi mesin cuci 3D"></canvas>
       <p class="hero-card-label">Contoh order</p>
       <p class="hero-card-order">LDR-1002 &bull; Cuci + Setrika &bull; 5 kg</p>
       <p class="hero-card-total">Rp50.000</p>
@@ -163,12 +169,17 @@
     <p>WhatsApp: <a href="https://wa.me/6281234567890">0812-3456-7890</a> &bull; Instagram: @laundryku</p>
     <p class="muted small">Web demo / project portfolio. Nomor WhatsApp di atas masih contoh — ganti di <code>script.js</code> (WA_NUMBER) sebelum dipakai beneran.</p>
   </section>
+
+  <p class="stack-note">Dibangun dengan <strong>Three.js</strong> (gelembung 3D), <strong>Zdog</strong> (mesin cuci 3D), <strong>Flubber</strong> (blob morphing) — dari daftar 20 repo video/3D shmidtqq. Video promo dirender dengan <strong>Remotion</strong> + <strong>FFmpeg</strong>, aset 3D disiapkan di <strong>Blender</strong>.</p>
 </main>
 
 <footer>
   <p>© 2026 LaundryKu — Project demo. Dibuat sebagai latihan web laundry.</p>
 </footer>
 
+<script src="assets/vendor/zdog.dist.min.js"></script>
+<script src="assets/vendor/flubber.min.js"></script>
 <script src="script.js"></script>
+<script type="module" src="hero-3d.js"></script>
 </body>
 </html>
