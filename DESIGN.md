@@ -44,5 +44,15 @@ Kontras terverifikasi (WCAG): #6e6e73/putih 5.07, #a1a1a6/hitam 8.16,
   browser sempat memuat HTML baru + CSS/JS lama yang ke-cache; DOM baru + tampilan lama
   = cache CSS/JS, bukan deploy gagal). Setelah push, Pages butuh 1-3 menit propagasi;
   verifikasi isi, bukan cuma status 200.
+- Header v5.1: transparan di atas (scrim gradasi hitam 55% → 0 di belakang teks),
+  gelap blur saat scroll (.scrolled), sembunyi halus (translateY -100%, 0.4s) saat
+  scroll ke bawah, muncul lagi saat scroll ke atas; nonaktif transisi kalau
+  prefers-reduced-motion. Aset ?v=5.1.
+- Catatan detektor: detect file-mode melaporkan 1 temuan low-contrast (teks header
+  #f5f5f7 "on #ffffff") — FALSE POSITIVE dari model statis: header fixed transparan
+  di atas hero HITAM (kontras nyata ~15:1) dan berlatar blur gelap saat scroll.
+  Model tidak bisa melihat hero di belakang header fixed. Scrim ditambahkan sebagai
+  perbaikan nyata (gelembung putih di belakang link 12px), bukan untuk detektor.
 - Riwayat: v3 "Porthole & Foam" (teal + kuning, Bricolage) → v4 Apple hitam-putih
-  (commit ce1e4e8; header full-width c789438; cache-busting 450c27c) → v5 A+C.
+  (commit ce1e4e8; header full-width c789438; cache-busting 450c27c) → v5 A+C
+  (b237c42) → v5.1 header sembunyi (6df66a5 + scrim).
