@@ -21,7 +21,7 @@ try {
   const key = new THREE.DirectionalLight(0xffffff, 1.4);
   key.position.set(5, 8, 6);
   scene.add(key);
-  const fill = new THREE.PointLight(0xffffff, 14, 40);
+  const fill = new THREE.PointLight(0xffffff, 18, 40);
   fill.position.set(-6, -2, 4);
   scene.add(fill);
 
@@ -32,7 +32,7 @@ try {
   for (let i = 0; i < COUNT; i++) {
     const mat = new THREE.MeshPhysicalMaterial({
       color: 0xffffff, metalness: 0, roughness: 0.08,
-      transparent: true, opacity: 0.18, clearcoat: 1, clearcoatRoughness: 0.15,
+      transparent: true, opacity: 0.22, clearcoat: 1, clearcoatRoughness: 0.15,
     });
     const b = new THREE.Mesh(geo, mat);
     const r = 0.25 + Math.random() * 0.65;

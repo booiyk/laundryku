@@ -6,7 +6,7 @@
 <title>LaundryKu — Laundry Kiloan Cepat, Bersih &amp; Wangi</title>
 <meta name="description" content="LaundryKu — laundry kiloan di Cirebon. Cuci kering, cuci + setrika, express 6 jam. Antar-jemput gratis, lacak cucian online, order via WhatsApp.">
 <meta name="theme-color" content="#000000">
-<link rel="stylesheet" href="style.css?v=4.1">
+<link rel="stylesheet" href="style.css?v=5.0">
 <script type="importmap">
 { "imports": { "three": "./assets/vendor/three.module.js" } }
 </script>
@@ -19,6 +19,7 @@
     <a href="#layanan">Layanan</a>
     <a href="#harga">Harga</a>
     <a href="#order">Order</a>
+    <a href="#galeri">Galeri</a>
     <a href="#lacak">Lacak</a>
     <a href="#faq">FAQ</a>
   </nav>
@@ -30,7 +31,7 @@
   <!-- Hero hitam — headline + mesin cuci 3D sebagai produk, gelembung Three.js -->
   <section class="hero section-black">
     <canvas id="bubbles" aria-hidden="true"></canvas>
-    <div class="hero-inner">
+    <div class="hero-inner reveal">
       <h1>Cucian bersih, wangi, selesai tepat waktu.</h1>
       <p class="subhead">Laundry kiloan di Cirebon. Antar-jemput gratis radius 3 km, express 6 jam selesai, dan status cucian bisa dilacak online.</p>
       <div class="hero-links">
@@ -45,9 +46,28 @@
     </div>
   </section>
 
+
+  <!-- Tile promo 2 kolom -->
+  <section class="tiles">
+    <div class="wrap reveal">
+      <div class="tiles-grid">
+        <a class="tile tile-dark" href="#order">
+          <h2>Express 6 Jam.</h2>
+          <p>Masuk pagi, sore sudah bisa diambil. Cuci + Setrika, tetap rapi dan wangi.</p>
+          <span class="tile-link">Pesan Express</span>
+        </a>
+        <a class="tile tile-light" href="#order">
+          <h2>Antar-Jemput Gratis.</h2>
+          <p>Gratis radius 3 km dari outlet. Di luar itu tambah Rp5.000 per pengantaran.</p>
+          <span class="tile-link">Order sekarang</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Cara order -->
   <section class="how">
-    <div class="wrap">
+    <div class="wrap reveal">
       <h2 class="center">Cara order.</h2>
       <p class="lead center">Empat langkah, tanpa ribet.</p>
       <div class="how-grid">
@@ -61,7 +81,7 @@
 
   <!-- Layanan -->
   <section id="layanan" class="services section-gray">
-    <div class="wrap">
+    <div class="wrap reveal">
       <h2>Layanan.</h2>
       <p class="lead" style="margin-left:0">Pilih yang paling cocok buat cucianmu.</p>
       <div class="menu">
@@ -101,7 +121,7 @@
 
   <!-- Harga -->
   <section id="harga" class="pricing">
-    <div class="wrap">
+    <div class="wrap reveal">
       <h2>Harga.</h2>
       <p class="lead" style="margin-left:0">Minimal order 3 kg untuk layanan kiloan. Harga sudah termasuk deterjen &amp; pewangi.</p>
       <table>
@@ -120,10 +140,36 @@
     </div>
   </section>
 
+
+  <!-- Galeri hasil cucian -->
+  <section id="galeri" class="gallery">
+    <div class="wrap reveal">
+      <h2>Hasil cucian.</h2>
+      <p class="lead" style="margin-left:0">Putih tetap putih, licin, dan wangi.</p>
+      <div class="gallery-grid">
+        <figure><img src="assets/gallery/towels.jpg" alt="Tumpukan handuk putih bersih yang dilipat rapi" loading="lazy"><figcaption>Handuk, dilipat rapi.</figcaption></figure>
+        <figure><img src="assets/gallery/shirts.jpg" alt="Kemeja putih bersih tergantung rapi di gantungan" loading="lazy"><figcaption>Kemeja, disetrika licin.</figcaption></figure>
+        <figure><img src="assets/gallery/sneakers.jpg" alt="Sepatu putih bersih setelah dicuci" loading="lazy"><figcaption>Sepatu, bersih lagi.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimoni -->
+  <section class="testimonials section-gray">
+    <div class="wrap reveal">
+      <h2>Kata mereka.</h2>
+      <div class="quotes">
+        <blockquote><p>“Baju kantor balik wangi dan licin banget. Langganan dari 2023.”</p><footer>— Rina, Cirebon</footer></blockquote>
+        <blockquote><p>“Express-nya beneran 6 jam. Masuk jam 9, jam 3 sudah bisa diambil.”</p><footer>— Dimas, Kesambi</footer></blockquote>
+        <blockquote><p>“Sepatu putih yang sudah kuning balik bersih lagi.”</p><footer>— Sinta, Lemahwungkuk</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
   <!-- Order / kalkulator -->
   <section id="order" class="order section-gray">
     <div class="wrap">
-      <div class="order-card">
+      <div class="order-card reveal">
         <h2>Hitung harga &amp; order.</h2>
         <p class="receipt-sub">Isi formulir ini, total langsung kehitung, terus kirim ke WhatsApp.</p>
         <form id="order-form">
@@ -171,7 +217,7 @@
 
   <!-- Lacak -->
   <section id="lacak" class="track">
-    <div class="wrap center">
+    <div class="wrap center reveal">
       <h2>Lacak cucianmu.</h2>
       <p class="lead">Masukkan kode order dari struk, contoh: <button type="button" class="linklike" data-code="LDR-1001">LDR-1001</button>, <button type="button" class="linklike" data-code="LDR-1002">LDR-1002</button>, <button type="button" class="linklike" data-code="LDR-1003">LDR-1003</button></p>
       <form id="track-form">
@@ -184,7 +230,7 @@
 
   <!-- FAQ -->
   <section id="faq" class="faq section-gray">
-    <div class="wrap">
+    <div class="wrap reveal">
       <h2 class="center">Pertanyaan umum.</h2>
       <details><summary>Berapa minimal order?</summary><p>Minimal 3 kg untuk layanan kiloan. Di bawah itu tetap dihitung 3 kg.</p></details>
       <details><summary>Apakah ada antar-jemput?</summary><p>Ada, gratis radius 3 km dari outlet. Di luar itu tambah Rp5.000 per pengantaran.</p></details>
@@ -209,7 +255,7 @@
 </footer>
 
 <script src="assets/vendor/zdog.dist.min.js"></script>
-<script src="script.js?v=4.1"></script>
-<script type="module" src="hero-3d.js?v=4.1"></script>
+<script src="script.js?v=5.0"></script>
+<script type="module" src="hero-3d.js?v=5.0"></script>
 </body>
 </html>

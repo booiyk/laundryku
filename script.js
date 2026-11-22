@@ -93,3 +93,18 @@ document.querySelectorAll("[data-code]").forEach((btn) =>
     document.getElementById("track-result").scrollIntoView({ behavior: "smooth", block: "nearest" });
   })
 );
+
+// Reveal saat scroll (v5): konten muncul halus saat masuk viewport
+(function () {
+  document.documentElement.classList.add('js');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+})();
