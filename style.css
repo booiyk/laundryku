@@ -1,7 +1,7 @@
 :root {
   --blue: #0b57d0;
   --blue-dark: #0842a0;
-  --teal: #00a8a8;
+  --teal: #007a7a;
   --ink: #14202e;
   --muted: #5b6b7a;
   --bg: #f4f8fb;
@@ -61,7 +61,6 @@ section { padding: 48px 0 8px; }
 #washer { width: 100%; max-width: 340px; height: 260px; display: block; margin: 0 auto 8px; cursor: grab; }
 #washer:active { cursor: grabbing; }
 .stack-note { text-align: center; color: var(--muted); font-size: 14px; padding: 32px 20px 0; }
-.eyebrow { color: var(--teal); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 13px; margin-bottom: 12px; }
 .lead { font-size: 18px; color: var(--muted); margin: 16px 0 24px; max-width: 52ch; }
 .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero-points { list-style: none; display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; font-weight: 600; font-size: 14px; }

@@ -85,7 +85,7 @@ try {
       element: '#washer', dragRotate: true,
       rotate: { x: -0.12, y: 0.25 }, zoom: 1.05,
     });
-    const BLUE = '#0b57d0', BLUE_D = '#0842a0', WHITE = '#eef5ff', DARK = '#14202e', TEAL = '#00a8a8';
+    const BLUE = '#0b57d0', BLUE_D = '#0842a0', WHITE = '#eef5ff', DARK = '#14202e', TEAL = '#007a7a';
 
     // Badan mesin
     new Zdog.Box({ addTo: illo, width: 150, height: 170, depth: 96, stroke: false, color: BLUE, leftFace: BLUE_D, rightFace: BLUE_D, topFace: '#2f7fe8', bottomFace: BLUE_D });

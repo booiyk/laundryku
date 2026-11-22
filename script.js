@@ -11,7 +11,7 @@ const detailEl = document.getElementById("total-detail");
 
 function calcTotal() {
   const pricePerKg = Number(serviceSelect.value);
-  const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text.split(" — ")[0];
+  const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text.split(": ")[0];
   const weight = Math.max(3, Number(weightInput.value) || 3);
   let total = pricePerKg * weight;
   const addons = [];
@@ -54,9 +54,9 @@ document.getElementById("order-form").addEventListener("submit", (e) => {
 
 // ---- Lacak order (data demo) ----
 const DEMO_ORDERS = {
-  "LDR-1001": { name: "Cuci + Setrika — 4 kg", total: 40000, status: "Selesai — bisa diambil / diantar", step: 4, eta: "Selesai hari ini, 15.00" },
-  "LDR-1002": { name: "Cuci + Setrika — 5 kg", total: 50000, status: "Disetrika", step: 3, eta: "Estimasi selesai hari ini, 17.00" },
-  "LDR-1003": { name: "Cuci Kering — 3 kg", total: 21000, status: "Dicuci", step: 2, eta: "Estimasi selesai besok, 10.00" },
+  "LDR-1001": { name: "Cuci + Setrika, 4 kg", total: 40000, status: "Selesai, bisa diambil / diantar", step: 4, eta: "Selesai hari ini, 15.00" },
+  "LDR-1002": { name: "Cuci + Setrika, 5 kg", total: 50000, status: "Disetrika", step: 3, eta: "Estimasi selesai hari ini, 17.00" },
+  "LDR-1003": { name: "Cuci Kering, 3 kg", total: 21000, status: "Dicuci", step: 2, eta: "Estimasi selesai besok, 10.00" },
 };
 const STEP_LABELS = ["Diterima", "Dicuci", "Disetrika", "Selesai"];
 
