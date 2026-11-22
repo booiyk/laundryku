@@ -32,7 +32,7 @@ try {
   for (let i = 0; i < COUNT; i++) {
     const mat = new THREE.MeshPhysicalMaterial({
       color: 0xdff2ff, metalness: 0, roughness: 0.08,
-      transparent: true, opacity: 0.32, clearcoat: 1, clearcoatRoughness: 0.15,
+      transparent: true, opacity: 0.22, clearcoat: 1, clearcoatRoughness: 0.15,
     });
     const b = new THREE.Mesh(geo, mat);
     const r = 0.25 + Math.random() * 0.65;
