@@ -6,7 +6,7 @@
 <title>LaundryKu — Laundry Kiloan Cepat, Bersih &amp; Wangi</title>
 <meta name="description" content="LaundryKu — laundry kiloan di Cirebon. Cuci kering, cuci + setrika, express 6 jam. Antar-jemput gratis, lacak cucian online, order via WhatsApp.">
 <meta name="theme-color" content="#000000">
-<link rel="stylesheet" href="style.css?v=5.3">
+<link rel="stylesheet" href="style.css?v=5.4">
 <script type="importmap">
 { "imports": { "three": "./assets/vendor/three.module.js" } }
 </script>
@@ -189,10 +189,38 @@
           </label>
           <fieldset>
             <legend>Tambahan satuan (opsional)</legend>
-            <label class="check"><input type="checkbox" class="addon" value="25000" data-label="Bed Cover"> Bed Cover: Rp25.000</label>
-            <label class="check"><input type="checkbox" class="addon" value="20000" data-label="Selimut"> Selimut: Rp20.000</label>
-            <label class="check"><input type="checkbox" class="addon" value="30000" data-label="Sepatu"> Sepatu: Rp30.000</label>
-            <label class="check"><input type="checkbox" class="addon" value="15000" data-label="Boneka"> Boneka: Rp15.000</label>
+            <div class="addon-row" data-price="25000" data-label="Bed Cover" data-qty="0">
+              <span class="addon-name">Bed Cover <span class="addon-price">Rp25.000</span></span>
+              <span class="stepper">
+                <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Bed Cover" disabled>−</button>
+                <span class="step-qty" aria-live="polite">0</span>
+                <button type="button" class="step-btn" data-step="1" aria-label="Tambah Bed Cover">+</button>
+              </span>
+            </div>
+            <div class="addon-row" data-price="20000" data-label="Selimut" data-qty="0">
+              <span class="addon-name">Selimut <span class="addon-price">Rp20.000</span></span>
+              <span class="stepper">
+                <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Selimut" disabled>−</button>
+                <span class="step-qty" aria-live="polite">0</span>
+                <button type="button" class="step-btn" data-step="1" aria-label="Tambah Selimut">+</button>
+              </span>
+            </div>
+            <div class="addon-row" data-price="30000" data-label="Sepatu" data-qty="0">
+              <span class="addon-name">Sepatu <span class="addon-price">Rp30.000</span></span>
+              <span class="stepper">
+                <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Sepatu" disabled>−</button>
+                <span class="step-qty" aria-live="polite">0</span>
+                <button type="button" class="step-btn" data-step="1" aria-label="Tambah Sepatu">+</button>
+              </span>
+            </div>
+            <div class="addon-row" data-price="15000" data-label="Boneka" data-qty="0">
+              <span class="addon-name">Boneka <span class="addon-price">Rp15.000</span></span>
+              <span class="stepper">
+                <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Boneka" disabled>−</button>
+                <span class="step-qty" aria-live="polite">0</span>
+                <button type="button" class="step-btn" data-step="1" aria-label="Tambah Boneka">+</button>
+              </span>
+            </div>
           </fieldset>
           <label>Antar-jemput
             <select id="f-pickup">
@@ -255,7 +283,7 @@
 </footer>
 
 <script src="assets/vendor/zdog.dist.min.js"></script>
-<script src="script.js?v=5.2"></script>
+<script src="script.js?v=5.4"></script>
 <script type="module" src="hero-3d.js?v=5.0"></script>
 </body>
 </html>

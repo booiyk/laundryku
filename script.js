@@ -15,9 +15,12 @@ function calcTotal() {
   const weight = Math.max(3, Number(weightInput.value) || 3);
   let total = pricePerKg * weight;
   const addons = [];
-  document.querySelectorAll(".addon:checked").forEach((box) => {
-    total += Number(box.value);
-    addons.push(box.dataset.label);
+  document.querySelectorAll(".addon-row").forEach((row) => {
+    const qty = Number(row.dataset.qty || 0);
+    if (qty > 0) {
+      total += Number(row.dataset.price) * qty;
+      addons.push(row.dataset.label + " \u00d7" + qty);
+    }
   });
   totalEl.textContent = rupiah(total);
   detailEl.textContent =
@@ -26,7 +29,16 @@ function calcTotal() {
 }
 
 [serviceSelect, weightInput].forEach((el) => el.addEventListener("input", calcTotal));
-document.querySelectorAll(".addon").forEach((box) => box.addEventListener("change", calcTotal));
+document.querySelectorAll(".step-btn").forEach((btn) => btn.addEventListener("click", () => {
+  const row = btn.closest(".addon-row");
+  let qty = Number(row.dataset.qty || 0) + Number(btn.dataset.step);
+  qty = Math.max(0, Math.min(9, qty));
+  row.dataset.qty = qty;
+  row.querySelector(".step-qty").textContent = qty;
+  row.querySelector('[data-step="-1"]').disabled = qty === 0;
+  row.classList.toggle("active", qty > 0);
+  calcTotal();
+}));
 calcTotal();
 
 document.getElementById("order-form").addEventListener("submit", (e) => {

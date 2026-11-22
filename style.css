@@ -141,8 +141,15 @@ section { padding: 96px 0; scroll-margin-top: 48px; }
 .order input:focus, .order select:focus { outline: 2px solid var(--ink); outline-offset: 0; background: #fff; box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08); }
 .order fieldset { border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 12px; }
 .order legend { font-weight: 600; padding: 0 8px; font-size: 15px; }
-.order .check { display: flex; gap: 10px; align-items: center; font-weight: 400; }
-.order .check input { width: auto; accent-color: var(--ink); padding: 0; background: transparent; }
+.addon-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 0; }
+.addon-row .addon-name { font-weight: 400; }
+.addon-row.active .addon-name { font-weight: 600; }
+.addon-row .addon-price { color: var(--gray); margin-left: 4px; }
+.stepper { display: flex; align-items: center; gap: 12px; }
+.step-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--ink); font: inherit; font-size: 18px; line-height: 1; cursor: pointer; display: grid; place-items: center; padding: 0; }
+.step-btn:hover:not(:disabled) { background: var(--ink); color: #fff; border-color: var(--ink); }
+.step-btn:disabled { opacity: 0.3; cursor: default; }
+.step-qty { min-width: 20px; text-align: center; font-weight: 600; }
 .total-box { border-top: 1px solid var(--line); padding: 20px 0 4px; display: grid; gap: 2px; }
 .total-box span { font-size: 13px; color: var(--gray); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
 .total-box strong { font-size: 44px; font-weight: 600; line-height: 1.1; }
