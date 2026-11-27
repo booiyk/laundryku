@@ -6,7 +6,7 @@
 <title>LaundryKu — Laundry Kiloan Cepat, Bersih &amp; Wangi</title>
 <meta name="description" content="LaundryKu — laundry kiloan di Cirebon. Cuci kering, cuci + setrika, express 6 jam. Antar-jemput gratis, lacak cucian online, order via WhatsApp.">
 <meta name="theme-color" content="#000000">
-<link rel="stylesheet" href="style.css?v=6.7">
+<link rel="stylesheet" href="style.css?v=6.8">
 <script type="importmap">
 { "imports": { "three": "./assets/vendor/three.module.js" } }
 </script>
@@ -39,6 +39,11 @@
         <a href="#lacak">Lacak cucian</a>
       </div>
       <p class="hero-price">Mulai dari Rp7.000/kg.</p>
+      <div class="hero-stats">
+        <span><strong>3 kg</strong>minimal order</span>
+        <span><strong>6 jam</strong>express selesai</span>
+        <span><strong>&lt; 3 km</strong>antar-jemput gratis</span>
+      </div>
       <div class="stage" aria-label="Mesin cuci 3D, seret untuk memutar">
         <canvas id="washer" width="560" height="560" aria-label="Ilustrasi mesin cuci 3D"></canvas>
       </div>
@@ -65,16 +70,30 @@
     </div>
   </section>
 
+  <!-- Kenapa LaundryKu -->
+  <section class="why">
+    <div class="wrap reveal">
+      <h2 class="center">Mengapa LaundryKu?</h2>
+      <p class="lead center">Empat alasan sederhana untuk pesan lagi.</p>
+      <div class="how-grid">
+        <div><h3>Harga jelas</h3><p>Harga per kg dan estimasi tertera di halaman harga.</p></div>
+        <div><h3>Express 6 jam</h3><p>Masuk pagi, sore sudah bisa diambil.</p></div>
+        <div><h3>Antar-jemput</h3><p>Gratis radius 3 km dari outlet.</p></div>
+        <div><h3>Status bisa dilacak</h3><p>Cek posisi cucian pakai kode order.</p></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Cara order -->
   <section class="how">
     <div class="wrap reveal">
-      <h2 class="center">Cara order.</h2>
-      <p class="lead center">Empat langkah, tanpa ribet.</p>
+      <h2 class="center">Cara pesan.</h2>
+      <p class="lead center">Tinggal duduk manis, cucian beres.</p>
       <div class="how-grid">
-        <div><h3>1. Order</h3><p>Hitung harga di bawah, kirim via WhatsApp.</p></div>
-        <div><h3>2. Dijemput</h3><p>Kurir jemput cucianmu, gratis radius 3 km.</p></div>
-        <div><h3>3. Dicuci</h3><p>Dicocokkan, dicuci, disetrika sampai rapi.</p></div>
-        <div><h3>4. Selesai</h3><p>Diantar balik atau diambil di outlet.</p></div>
+        <div><h3>1. Isi reservasi</h3><p>Hitung harga, lalu kirim order via WhatsApp.</p></div>
+        <div><h3>2. Dijemput kurir</h3><p>Kurir ambil cucianmu, gratis radius 3 km.</p></div>
+        <div><h3>3. Dicuci &amp; disetrika</h3><p>Dicuci, dikeringkan, dan dirapikan.</p></div>
+        <div><h3>4. Diantar / diambil</h3><p>Selesai, diantar balik atau ambil di outlet.</p></div>
       </div>
     </div>
   </section>
@@ -154,6 +173,15 @@
     </div>
   </section>
 
+  <!-- Tentang -->
+  <section id="tentang" class="about section-gray">
+    <div class="wrap reveal">
+      <h2>Tentang LaundryKu.</h2>
+      <p class="lead" style="margin-left:0">Laundry kiloan di Cirebon. Kami cuci, keringkan, setrika, dan lipat cucianmu supaya bersih, wangi, dan rapi. Bisa antar-jemput, bisa lacak status cucian.</p>
+      <p class="small muted" style="margin-top:12px">Butuh laundry untuk kantor atau rumah? Hubungi kami lewat WhatsApp untuk diskusi kebutuhanmu.</p>
+    </div>
+  </section>
+
   <!-- Testimoni -->
   <section class="testimonials">
     <div class="wrap reveal">
@@ -170,8 +198,8 @@
   <section id="order" class="order section-gray">
     <div class="wrap">
       <div class="order-card reveal">
-        <h2>Hitung harga &amp; order.</h2>
-        <p class="receipt-sub">Isi formulir ini, total langsung kehitung, terus kirim ke WhatsApp.</p>
+        <h2>Reservasi laundry.</h2>
+        <p class="receipt-sub">Isi formulir, total langsung kehitung, lalu lanjut ke WhatsApp.</p>
         <form id="order-form">
           <label>Nama
             <input type="text" id="f-name" placeholder="Nama kamu" required>
@@ -264,6 +292,8 @@
       <details><summary>Apakah ada antar-jemput?</summary><p>Ada, gratis radius 3 km dari outlet. Di luar itu tambah Rp5.000 per pengantaran.</p></details>
       <details><summary>Bagaimana kalau ada pakaian rusak atau hilang?</summary><p>Kami garansi cuci ulang kalau hasil kurang bersih, dan ganti rugi sesuai ketentuan di struk untuk kehilangan/kerusakan karena proses kami.</p></details>
       <details><summary>Bisa bayar pakai apa?</summary><p>Tunai, transfer bank, dan QRIS.</p></details>
+      <details><summary>Berapa lama express selesai?</summary><p>Paket Express 6 Jam selesai maksimal 6 jam setelah cucian diterima.</p></details>
+      <details><summary>Bisa untuk laundry kantor?</summary><p>Bisa. Hubungi kami lewat WhatsApp untuk diskusi kebutuhan laundry kantormu.</p></details>
     </div>
   </section>
 </main>
