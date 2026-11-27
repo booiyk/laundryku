@@ -27,6 +27,10 @@ a { color: inherit; }
 h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; }
 h1 { font-size: clamp(36px, 5vw, 68px); letter-spacing: -0.03em; }
 h2 { font-size: clamp(30px, 4vw, 56px); margin-bottom: 8px; }
+h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 14px; background: var(--ink); transform: scaleX(0); transform-origin: left; transition: transform 0.6s ease; }
+.reveal.visible h2::after { transform: scaleX(1); }
+.center h2::after { margin-left: auto; margin-right: auto; }
+.section-black h2::after { background: #f5f5f7; }
 .muted { color: var(--gray); }
 .small { font-size: 13px; }
 
@@ -69,6 +73,15 @@ h2 { font-size: clamp(30px, 4vw, 56px); margin-bottom: 8px; }
 .btn-outline:hover { background: #f5f5f7; color: #000; }
 .wa-fab { position: fixed; right: 18px; bottom: 18px; z-index: 30; width: 52px; height: 52px; border-radius: 50%; background: #f5f5f7; color: #000; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); display: grid; place-items: center; text-decoration: none; font-size: 13px; font-weight: 700; transition: transform 0.2s ease; }
 .wa-fab:hover { transform: translateY(-3px); }
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: #f5f5f7; z-index: 50; }
+.marquee { overflow: hidden; background: var(--ink); color: #f5f5f7; padding: 12px 0; }
+.marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+.marquee-group { display: flex; gap: 48px; padding-right: 48px; }
+.marquee span { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+.marquee span::after { content: "•"; margin-left: 48px; color: var(--gray-light); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.22); } 50% { box-shadow: 0 0 0 9px rgba(0, 0, 0, 0); } }
+.hero-links .btn-light { animation: pulse 2.6s ease-in-out infinite; }
 .btn-wide { width: 100%; padding: 16px; }
 
 section { padding: 64px 0; scroll-margin-top: 48px; }
@@ -111,6 +124,10 @@ section { padding: 64px 0; scroll-margin-top: 48px; }
 .how-grid h3 { font-size: 21px; margin: 10px 0 6px; }
 .how-grid p { color: var(--gray); font-size: 15px; }
 .how-grid > div { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05); }
+.how .how-grid { counter-reset: langkah; }
+.how .how-grid > div { position: relative; padding-left: 58px; }
+.how .how-grid > div::before { counter-increment: langkah; content: counter(langkah); position: absolute; left: 16px; top: 18px; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; font-size: 13px; font-weight: 600; }
+.how .how-grid > div h3 { font-size: 19px; }
 
 /* ---------- Layanan: baris dengan hairline ---------- */
 .menu { margin-top: 20px; border-top: 1px solid var(--line); text-align: left; }
@@ -289,4 +306,6 @@ footer .foot-links a:hover { text-decoration: underline; }
   html { scroll-behavior: auto; }
   .site-header { transition: none; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .marquee-track, .hero-links .btn-light { animation: none !important; }
+  h2::after { transform: scaleX(1); }
 }

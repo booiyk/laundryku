@@ -140,3 +140,16 @@ document.querySelectorAll("[data-code]").forEach((btn) =>
     if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
   }, { passive: true });
 })();
+
+// Scroll progress bar
+(function () {
+  var bar = document.querySelector('.scroll-progress');
+  if (!bar) return;
+  function update() {
+    var max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+})();
