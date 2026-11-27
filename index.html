@@ -3,324 +3,441 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>LaundryKu — Laundry Kiloan Cepat, Bersih &amp; Wangi</title>
-<meta name="description" content="LaundryKu — laundry kiloan di Cirebon. Cuci kering, cuci + setrika, express 6 jam. Antar-jemput gratis, lacak cucian online, order via WhatsApp.">
-<meta name="theme-color" content="#000000">
+<title>LaundryKu — Laundry kiloan Cirebon, dijemput dan diantar</title>
+<meta name="description" content="LaundryKu — laundry kiloan di Cirebon. Cuci kering, cuci + setrika, express 6 jam. Antar-jemput gratis radius 3 km, hitung harga langsung, lacak cucian online.">
+<meta name="theme-color" content="#faf9f6">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LaundryKu — Laundry Kiloan di Cirebon">
 <meta property="og:description" content="Cuci kering, cuci + setrika, express 6 jam. Antar-jemput gratis radius 3 km dan lacak status cucian.">
 <meta property="og:image" content="https://booiyk.github.io/laundryku/assets/gallery/towels.jpg">
-<link rel="stylesheet" href="style.css?v=7.3">
-<script type="importmap">
-{ "imports": { "three": "./assets/vendor/three.module.js" } }
-</script>
+<link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=8.0">
 </head>
 <body>
-<div class="scroll-progress" aria-hidden="true"></div>
+<a class="skip" href="#order">Lompat ke form order</a>
+
 <header class="site-header">
-  <div class="site-header-inner">
-  <a class="logo" href="#top">LaundryKu</a>
-  <nav>
-    <a href="#layanan">Layanan</a>
-    <a href="#harga">Harga</a>
-    <a href="#order">Order</a>
-    <a href="#galeri">Galeri</a>
-    <a href="#lacak">Lacak</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-  <a class="btn btn-small" href="#order">Order</a>
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="8.6" cy="9.4" r="2.1" fill="currentColor"/>
+        <circle cx="14.6" cy="14.4" r="1.4" fill="currentColor"/>
+        <circle cx="15" cy="7.6" r="1" fill="currentColor"/>
+      </svg>
+      LaundryKu
+    </a>
+    <nav class="nav">
+      <a href="#layanan">Layanan</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#lacak">Lacak</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="pill" href="#order">Order sekarang</a>
   </div>
 </header>
 
 <main id="top">
-  <!-- Hero hitam — headline + mesin cuci 3D sebagai produk, gelembung Three.js -->
-  <section class="hero section-black">
-    <canvas id="bubbles" aria-hidden="true"></canvas>
-    <div class="hero-inner">
-      <h1>Cucian bersih, wangi, selesai tepat waktu.</h1>
-      <p class="subhead">Laundry kiloan di Cirebon. Antar-jemput gratis radius 3 km, express 6 jam selesai, dan status cucian bisa dilacak online.</p>
-      <div class="hero-links">
-        <a class="btn btn-light" href="#order">Hitung &amp; order</a>
-        <a class="btn btn-outline" href="#lacak">Lacak cucian</a>
-      </div>
-      <p class="hero-price">Mulai dari Rp7.000/kg.</p>
-      <div class="hero-stats">
-        <span><strong>3 kg</strong> minimal order</span>
-        <span><strong>6 jam</strong> express selesai</span>
-        <span><strong>&lt; 3 km</strong> antar-jemput gratis</span>
-      </div>
-      <div class="stage" aria-label="Mesin cuci 3D, seret untuk memutar">
-        <canvas id="washer" width="560" height="560" aria-label="Ilustrasi mesin cuci 3D"></canvas>
-      </div>
-      <p class="stage-caption">Seret untuk memutar</p>
-    </div>
-  </section>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <div class="marquee-group"><span>Minimal 3 kg</span><span>Cuci + Setrika</span><span>Express 6 jam</span><span>Antar-jemput gratis</span><span>Lacak cucian</span><span>QRIS</span></div>
-      <div class="marquee-group"><span>Minimal 3 kg</span><span>Cuci + Setrika</span><span>Express 6 jam</span><span>Antar-jemput gratis</span><span>Lacak cucian</span><span>QRIS</span></div>
-    </div>
-  </div>
-
-  <!-- Kenapa LaundryKu -->
-  <section class="why">
-    <div class="wrap reveal">
-      <h2 class="center">Mengapa LaundryKu?</h2>
-      <p class="lead center">Empat alasan sederhana untuk pesan lagi.</p>
-      <div class="how-grid">
-        <div><h3>Harga jelas</h3><p>Harga per kg dan estimasi tertera di halaman harga.</p></div>
-        <div><h3>Express 6 jam</h3><p>Masuk pagi, sore sudah bisa diambil.</p></div>
-        <div><h3>Antar-jemput</h3><p>Gratis radius 3 km dari outlet.</p></div>
-        <div><h3>Status bisa dilacak</h3><p>Cek posisi cucian pakai kode order.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cara order -->
-  <section class="how">
-    <div class="wrap reveal">
-      <h2 class="center">Cara pesan.</h2>
-      <p class="lead center">Tinggal duduk manis, cucian beres.</p>
-      <div class="how-grid">
-        <div><h3>1. Isi reservasi</h3><p>Hitung harga, lalu kirim order via WhatsApp.</p></div>
-        <div><h3>2. Dijemput kurir</h3><p>Kurir ambil cucianmu, gratis radius 3 km.</p></div>
-        <div><h3>3. Dicuci &amp; disetrika</h3><p>Dicuci, dikeringkan, dan dirapikan.</p></div>
-        <div><h3>4. Diantar / diambil</h3><p>Selesai, diantar balik atau ambil di outlet.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Layanan -->
-  <section id="layanan" class="services section-gray">
-    <div class="wrap reveal">
-      <h2>Layanan.</h2>
-      <p class="lead" style="margin-left:0">Pilih yang paling cocok buat cucianmu.</p>
-      <div class="menu">
-        <a class="menu-row" href="#order">
-          <h3>Cuci Kering</h3>
-          <p>Cuci + kering, dilipat rapi. Selesai 1 hari.</p>
-          <p class="price">Rp7.000<span>/kg</span></p>
-        </a>
-        <a class="menu-row" href="#order">
-          <h3>Cuci + Setrika <span class="tag">Paling laris</span></h3>
-          <p>Cuci, kering, setrika, packing rapi. Selesai 1 hari.</p>
-          <p class="price">Rp10.000<span>/kg</span></p>
-        </a>
-        <a class="menu-row" href="#order">
-          <h3>Setrika Saja</h3>
-          <p>Baju sudah bersih, tinggal setrika sampai licin.</p>
-          <p class="price">Rp6.000<span>/kg</span></p>
-        </a>
-        <a class="menu-row" href="#order">
-          <h3>Express 6 Jam</h3>
-          <p>Butuh cepat? Masuk pagi, sore sudah bisa diambil.</p>
-          <p class="price">Rp15.000<span>/kg</span></p>
-        </a>
-        <a class="menu-row" href="#order">
-          <h3>Satuan</h3>
-          <p>Bed cover, selimut, sepatu, boneka, jaket kulit.</p>
-          <p class="price">Mulai Rp15.000</p>
-        </a>
-        <a class="menu-row" href="#order">
-          <h3>Antar-Jemput <span class="tag">Gratis &lt; 3 km</span></h3>
-          <p>Di luar 3 km tambah Rp5.000 per pengantaran.</p>
-          <p class="price">Gratis</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Harga -->
-  <section id="harga" class="pricing">
-    <div class="wrap reveal">
-      <h2>Harga.</h2>
-      <p class="lead" style="margin-left:0">Minimal order 3 kg untuk layanan kiloan. Harga sudah termasuk deterjen &amp; pewangi.</p>
-      <table>
-        <thead><tr><th>Layanan</th><th>Harga</th><th>Estimasi</th></tr></thead>
-        <tbody>
-          <tr><td>Cuci Kering</td><td>Rp7.000/kg</td><td>1 hari</td></tr>
-          <tr><td>Cuci + Setrika</td><td>Rp10.000/kg</td><td>1 hari</td></tr>
-          <tr><td>Setrika Saja</td><td>Rp6.000/kg</td><td>1 hari</td></tr>
-          <tr><td>Express 6 Jam (Cuci + Setrika)</td><td>Rp15.000/kg</td><td>6 jam</td></tr>
-          <tr><td>Bed Cover</td><td>Rp25.000/pcs</td><td>2 hari</td></tr>
-          <tr><td>Selimut</td><td>Rp20.000/pcs</td><td>1 hari</td></tr>
-          <tr><td>Sepatu</td><td>Rp30.000/pasang</td><td>2 hari</td></tr>
-          <tr><td>Boneka</td><td>Rp15.000/pcs</td><td>2 hari</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-
-  <!-- Galeri hasil cucian -->
-  <section id="galeri" class="gallery">
-    <div class="wrap reveal">
-      <h2>Hasil cucian.</h2>
-      <p class="lead" style="margin-left:0">Putih tetap putih, licin, dan wangi.</p>
-      <div class="gallery-grid">
-        <figure><img src="assets/gallery/towels.jpg" alt="Tumpukan handuk putih bersih yang dilipat rapi" loading="lazy"><figcaption>Handuk, dilipat rapi.</figcaption></figure>
-        <figure><img src="assets/gallery/shirts.jpg" alt="Kemeja putih bersih tergantung rapi di gantungan" loading="lazy"><figcaption>Kemeja, disetrika licin.</figcaption></figure>
-        <figure><img src="assets/gallery/sneakers.jpg" alt="Sepatu putih bersih setelah dicuci" loading="lazy"><figcaption>Sepatu, bersih lagi.</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tentang -->
-  <section id="tentang" class="about section-gray">
-    <div class="wrap reveal about-grid">
-      <div>
-        <h2>Tentang LaundryKu.</h2>
-        <p class="lead" style="margin-left:0">Laundry kiloan di Cirebon. Kami cuci, keringkan, setrika, dan lipat cucianmu supaya bersih, wangi, dan rapi. Bisa antar-jemput, bisa lacak status cucian.</p>
-        <p class="small muted" style="margin-top:12px">Butuh laundry untuk kantor atau rumah? Hubungi kami lewat WhatsApp untuk diskusi kebutuhanmu.</p>
-        <ul class="about-check"><li>Bersih</li><li>Wangi</li><li>Rapi</li><li>Tepat waktu</li></ul>
-      </div>
-      <div class="about-seal" aria-hidden="true">
-        <div><strong>3 kg</strong><small>minimal order</small></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimoni -->
-  <section class="testimonials">
-    <div class="wrap reveal">
-      <h2>Kata mereka.</h2>
-      <div class="quotes">
-        <blockquote><p>“Baju kantor balik wangi dan licin banget. Langganan dari 2023.”</p><footer>— Rina, Cirebon</footer></blockquote>
-        <blockquote><p>“Express-nya beneran 6 jam. Masuk jam 9, jam 3 sudah bisa diambil.”</p><footer>— Dimas, Kesambi</footer></blockquote>
-        <blockquote><p>“Sepatu putih yang sudah kuning balik bersih lagi.”</p><footer>— Sinta, Lemahwungkuk</footer></blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- Order / kalkulator -->
-  <section id="order" class="order section-gray">
+  <!-- HERO: objek mesin cuci di kiri, peta rute antar-jemput + form order di kanan -->
+  <section class="hero">
     <div class="wrap">
-      <div class="order-card reveal">
-        <h2>Reservasi laundry.</h2>
-        <p class="receipt-sub">Isi formulir, total langsung kehitung, lalu lanjut ke WhatsApp.</p>
-        <form id="order-form">
-          <label>Nama
-            <input type="text" id="f-name" placeholder="Nama kamu" required>
-          </label>
-          <label>Layanan kiloan
-            <select id="f-service">
-              <option value="7000">Cuci Kering: Rp7.000/kg</option>
-              <option value="10000" selected>Cuci + Setrika: Rp10.000/kg</option>
-              <option value="6000">Setrika Saja: Rp6.000/kg</option>
-              <option value="15000">Express 6 Jam: Rp15.000/kg</option>
-            </select>
-          </label>
-          <label>Berat (kg), minimal 3 kg
-            <input type="number" id="f-weight" min="3" step="0.5" value="5">
-          </label>
-          <fieldset>
-            <legend>Tambahan satuan (opsional)</legend>
-            <div class="addon-row" data-price="25000" data-label="Bed Cover" data-qty="0">
-              <span class="addon-name">Bed Cover <span class="addon-price">Rp25.000</span></span>
-              <span class="stepper">
-                <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Bed Cover" disabled>−</button>
-                <span class="step-qty" aria-live="polite">0</span>
-                <button type="button" class="step-btn" data-step="1" aria-label="Tambah Bed Cover">+</button>
-              </span>
-            </div>
-            <div class="addon-row" data-price="20000" data-label="Selimut" data-qty="0">
-              <span class="addon-name">Selimut <span class="addon-price">Rp20.000</span></span>
-              <span class="stepper">
-                <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Selimut" disabled>−</button>
-                <span class="step-qty" aria-live="polite">0</span>
-                <button type="button" class="step-btn" data-step="1" aria-label="Tambah Selimut">+</button>
-              </span>
-            </div>
-            <div class="addon-row" data-price="30000" data-label="Sepatu" data-qty="0">
-              <span class="addon-name">Sepatu <span class="addon-price">Rp30.000</span></span>
-              <span class="stepper">
-                <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Sepatu" disabled>−</button>
-                <span class="step-qty" aria-live="polite">0</span>
-                <button type="button" class="step-btn" data-step="1" aria-label="Tambah Sepatu">+</button>
-              </span>
-            </div>
-            <div class="addon-row" data-price="15000" data-label="Boneka" data-qty="0">
-              <span class="addon-name">Boneka <span class="addon-price">Rp15.000</span></span>
-              <span class="stepper">
-                <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Boneka" disabled>−</button>
-                <span class="step-qty" aria-live="polite">0</span>
-                <button type="button" class="step-btn" data-step="1" aria-label="Tambah Boneka">+</button>
-              </span>
-            </div>
-          </fieldset>
-          <label>Antar-jemput
-            <select id="f-pickup">
-              <option value="jemput">Dijemput kurir (gratis &lt; 3 km)</option>
-              <option value="antar">Antar sendiri ke outlet</option>
-            </select>
-          </label>
-          <label>Alamat jemput (kalau dijemput)
-            <input type="text" id="f-address" placeholder="Alamat lengkap">
-          </label>
-          <div class="total-box">
-            <span>Estimasi total</span>
-            <strong id="total">Rp50.000</strong>
-            <p id="total-detail" class="muted">Cuci + Setrika × 5 kg</p>
+      <div class="hero-frame">
+        <div class="hero-left">
+          <p class="lede">Laundry kiloan di Cirebon &middot; dijemput, dicuci, diantar</p>
+          <div class="object">
+            <canvas id="washer" width="520" height="520" aria-label="Ilustrasi mesin cuci, seret untuk memutar"></canvas>
+            <p class="object-cap">Seret untuk memutar</p>
           </div>
-          <button class="btn btn-wide" type="submit">Order via WhatsApp</button>
-          <p class="muted small">Order dikirim sebagai pesan WhatsApp ke nomor laundry. Pembayaran di tempat / transfer setelah cucian diterima.</p>
-        </form>
+          <h1>Cucian bersih, wangi, selesai tepat waktu.</h1>
+          <p class="sub">Antar-jemput gratis radius 3 km, express 6 jam selesai, dan status cucian bisa dilacak online.</p>
+          <dl class="proof">
+            <div><dt>Minimal order</dt><dd>3 kg</dd></div>
+            <div><dt>Express</dt><dd>6 jam</dd></div>
+            <div><dt>Antar-jemput</dt><dd>gratis &lt; 3 km</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero-right">
+          <div class="map-wrap">
+<svg class="map" viewBox="0 0 640 820" role="img" aria-label="Peta area antar-jemput LaundryKu di Cirebon: kurir menjemput cucian, dicuci di outlet, lalu diantar kembali.">
+<rect width="640" height="820" fill="#faf9f6"/>
+<rect x="28" y="30" width="50" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="28" y="104" width="49" height="45" rx="2" fill="#e8e7e3"/>
+<rect x="28" y="178" width="52" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="28" y="252" width="46" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="28" y="326" width="52" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="28" y="400" width="48" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="28" y="474" width="48" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="28" y="548" width="52" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="28" y="622" width="49" height="47" rx="2" fill="#e8e7e3"/>
+<rect x="28" y="696" width="52" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="28" y="770" width="52" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="100" y="30" width="49" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="100" y="104" width="46" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="100" y="178" width="52" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="100" y="252" width="47" height="45" rx="2" fill="#e8e7e3"/>
+<rect x="100" y="326" width="48" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="100" y="400" width="48" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="100" y="474" width="49" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="100" y="548" width="51" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="100" y="622" width="48" height="44" rx="2" fill="#e8e7e3"/>
+<rect x="100" y="696" width="51" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="100" y="770" width="49" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="172" y="30" width="48" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="172" y="104" width="48" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="172" y="178" width="48" height="44" rx="2" fill="#e8e7e3"/>
+<rect x="172" y="252" width="47" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="172" y="326" width="52" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="172" y="400" width="48" height="45" rx="2" fill="#e8e7e3"/>
+<rect x="172" y="474" width="51" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="172" y="548" width="52" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="172" y="622" width="47" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="172" y="696" width="48" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="172" y="770" width="48" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="244" y="30" width="49" height="45" rx="2" fill="#e8e7e3"/>
+<rect x="244" y="104" width="48" height="47" rx="2" fill="#e8e7e3"/>
+<rect x="244" y="178" width="46" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="244" y="252" width="49" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="244" y="326" width="49" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="244" y="400" width="50" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="244" y="474" width="46" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="244" y="548" width="47" height="44" rx="2" fill="#e8e7e3"/>
+<rect x="244" y="622" width="51" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="244" y="696" width="48" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="244" y="770" width="48" height="47" rx="2" fill="#e8e7e3"/>
+<rect x="316" y="30" width="50" height="45" rx="2" fill="#e8e7e3"/>
+<rect x="316" y="104" width="49" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="316" y="178" width="48" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="316" y="252" width="52" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="316" y="326" width="49" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="316" y="400" width="46" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="316" y="474" width="51" height="47" rx="2" fill="#e8e7e3"/>
+<rect x="316" y="548" width="49" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="316" y="622" width="47" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="316" y="696" width="46" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="316" y="770" width="48" height="44" rx="2" fill="#e8e7e3"/>
+<rect x="388" y="30" width="46" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="388" y="104" width="50" height="45" rx="2" fill="#e8e7e3"/>
+<rect x="388" y="178" width="50" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="388" y="252" width="49" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="388" y="326" width="46" height="47" rx="2" fill="#e8e7e3"/>
+<rect x="388" y="400" width="52" height="44" rx="2" fill="#e8e7e3"/>
+<rect x="388" y="474" width="52" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="388" y="548" width="49" height="45" rx="2" fill="#e8e7e3"/>
+<rect x="388" y="622" width="47" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="388" y="696" width="52" height="45" rx="2" fill="#e8e7e3"/>
+<rect x="388" y="770" width="47" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="460" y="30" width="47" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="460" y="104" width="47" height="44" rx="2" fill="#e8e7e3"/>
+<rect x="460" y="178" width="49" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="460" y="252" width="47" height="47" rx="2" fill="#e8e7e3"/>
+<rect x="460" y="326" width="47" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="460" y="400" width="52" height="47" rx="2" fill="#e8e7e3"/>
+<rect x="460" y="474" width="50" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="460" y="548" width="48" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="460" y="622" width="49" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="460" y="696" width="51" height="44" rx="2" fill="#e8e7e3"/>
+<rect x="460" y="770" width="50" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="532" y="30" width="47" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="532" y="104" width="49" height="47" rx="2" fill="#e8e7e3"/>
+<rect x="532" y="178" width="46" height="47" rx="2" fill="#e8e7e3"/>
+<rect x="532" y="252" width="52" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="532" y="326" width="49" height="47" rx="2" fill="#e8e7e3"/>
+<rect x="532" y="400" width="48" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="532" y="474" width="51" height="44" rx="2" fill="#e8e7e3"/>
+<rect x="532" y="548" width="49" height="44" rx="2" fill="#e8e7e3"/>
+<rect x="532" y="622" width="48" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="532" y="696" width="47" height="47" rx="2" fill="#e8e7e3"/>
+<rect x="532" y="770" width="50" height="45" rx="2" fill="#e8e7e3"/>
+<rect x="604" y="30" width="49" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="604" y="104" width="51" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="604" y="178" width="51" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="604" y="252" width="51" height="45" rx="2" fill="#e8e7e3"/>
+<rect x="604" y="326" width="51" height="50" rx="2" fill="#e8e7e3"/>
+<rect x="604" y="400" width="49" height="44" rx="2" fill="#e8e7e3"/>
+<rect x="604" y="474" width="48" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="604" y="548" width="50" height="48" rx="2" fill="#e8e7e3"/>
+<rect x="604" y="622" width="52" height="49" rx="2" fill="#e8e7e3"/>
+<rect x="604" y="696" width="49" height="46" rx="2" fill="#e8e7e3"/>
+<rect x="604" y="770" width="50" height="46" rx="2" fill="#e8e7e3"/>
+<path d="M-40 640 L700 60" stroke="#dedcd6" stroke-width="26" fill="none"/>
+<path d="M-40 640 L700 60" stroke="#faf9f6" stroke-width="2" stroke-dasharray="14 16" fill="none"/>
+<path d="M120 -20 L420 840" stroke="#dedcd6" stroke-width="16" fill="none"/>
+<path d="M520 -20 C470 160 590 300 540 470 C505 600 570 700 540 840" stroke="#d8d6d0" stroke-width="18" fill="none" stroke-linecap="round"/>
+<text x="300" y="96" class="map-label">KESAMBI</text>
+<text x="86" y="300" class="map-label">KEJAKSAN</text>
+<text x="300" y="500" class="map-label">LEMAHWUNGKUK</text>
+<text x="474" y="250" class="map-label">HARJAMUKTI</text>
+<text x="396" y="720" class="map-label">SUMBER</text>
+<text x="150" y="640" class="map-label">PEGAMBIRAN</text>
+<text x="250" y="330" class="map-street" transform="rotate(-40 250 330)">Jl. Siliwangi</text>
+<text x="70" y="560" class="map-street">Jl. Kartini</text>
+<path class="route" d="M150 700 L150 560 L232 470 L232 330 L330 330 L330 250 L452 250 L452 380 L520 470" fill="none"/>
+<g class="pin pin-a" transform="translate(150,700)">
+  <circle r="21" fill="#0a0a0a"/><circle r="21" fill="none" stroke="#faf9f6" stroke-width="3"/>
+  <path d="M-7 3 L0 -5 L7 3 V10 H-7 Z" fill="#faf9f6"/></g>
+<g class="pin pin-b" transform="translate(452,250)">
+  <rect x="-22" y="-22" width="44" height="44" rx="10" fill="#0a0a0a"/>
+  <rect x="-22" y="-22" width="44" height="44" rx="10" fill="none" stroke="#faf9f6" stroke-width="3"/>
+  <circle r="10" fill="none" stroke="#faf9f6" stroke-width="3"/>
+  <circle cx="7" cy="-9" r="2.4" fill="#faf9f6"/></g>
+<g class="pin pin-c" transform="translate(520,470)">
+  <circle r="21" fill="#0a0a0a"/><circle r="21" fill="none" stroke="#faf9f6" stroke-width="3"/>
+  <path d="M-7 3 L0 -5 L7 3 V10 H-7 Z" fill="#faf9f6"/></g>
+</svg>
+            <div class="map-legend" aria-hidden="true">
+              <span><i class="dot"></i>Jemput &amp; antar</span><span><i class="square"></i>Outlet</span>
+            </div>
+          </div>
+
+          <div class="order-card" id="order">
+            <h2>Hitung &amp; order</h2>
+            <form id="order-form" class="order-form">
+              <div class="field-row row-svc">
+                <div class="field">
+                  <label for="f-service">Layanan kiloan</label>
+                  <select id="f-service">
+                    <option value="7000">Cuci Kering: Rp7.000/kg</option>
+                    <option value="10000" selected>Cuci + Setrika: Rp10.000/kg</option>
+                    <option value="6000">Setrika Saja: Rp6.000/kg</option>
+                    <option value="15000">Express 6 Jam: Rp15.000/kg</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="f-weight">Berat (kg), min 3</label>
+                  <input type="number" id="f-weight" min="3" step="0.5" value="5">
+                </div>
+              </div>
+
+
+              <fieldset class="addons">
+                <legend>Tambahan satuan</legend>
+                <div class="addon-row" data-price="25000" data-label="Bed Cover" data-qty="0">
+                  <span class="addon-name">Bed Cover <span class="addon-price">Rp25.000</span></span>
+                  <span class="stepper">
+                    <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Bed Cover" disabled>−</button>
+                    <span class="step-qty" aria-live="polite">0</span>
+                    <button type="button" class="step-btn" data-step="1" aria-label="Tambah Bed Cover">+</button>
+                  </span>
+                </div>
+                <div class="addon-row" data-price="20000" data-label="Selimut" data-qty="0">
+                  <span class="addon-name">Selimut <span class="addon-price">Rp20.000</span></span>
+                  <span class="stepper">
+                    <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Selimut" disabled>−</button>
+                    <span class="step-qty" aria-live="polite">0</span>
+                    <button type="button" class="step-btn" data-step="1" aria-label="Tambah Selimut">+</button>
+                  </span>
+                </div>
+                <div class="addon-row" data-price="30000" data-label="Sepatu" data-qty="0">
+                  <span class="addon-name">Sepatu <span class="addon-price">Rp30.000</span></span>
+                  <span class="stepper">
+                    <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Sepatu" disabled>−</button>
+                    <span class="step-qty" aria-live="polite">0</span>
+                    <button type="button" class="step-btn" data-step="1" aria-label="Tambah Sepatu">+</button>
+                  </span>
+                </div>
+                <div class="addon-row" data-price="15000" data-label="Boneka" data-qty="0">
+                  <span class="addon-name">Boneka <span class="addon-price">Rp15.000</span></span>
+                  <span class="stepper">
+                    <button type="button" class="step-btn" data-step="-1" aria-label="Kurangi Boneka" disabled>−</button>
+                    <span class="step-qty" aria-live="polite">0</span>
+                    <button type="button" class="step-btn" data-step="1" aria-label="Tambah Boneka">+</button>
+                  </span>
+                </div>
+              </fieldset>
+              <div class="field-row row-3">
+                <div class="field">
+                  <label for="f-name">Nama</label>
+                  <input type="text" id="f-name" placeholder="Nama kamu" required>
+                </div>
+                <div class="field">
+                  <label for="f-pickup">Antar-jemput</label>
+                  <select id="f-pickup">
+                    <option value="jemput">Dijemput kurir</option>
+                    <option value="antar">Antar ke outlet</option>
+                  </select>
+                </div>
+                <div class="field" id="address-field">
+                  <label for="f-address">Alamat jemput</label>
+                  <input type="text" id="f-address" placeholder="Alamat lengkap, patokan">
+                </div>
+              </div>
+              <div class="total-row">
+                <span class="total-label">Estimasi total</span>
+                <strong id="total">Rp50.000</strong>
+                <span id="total-detail" class="muted">Cuci + Setrika × 5 kg</span>
+              </div>
+              <button class="pill pill-wide" type="submit">Order via WhatsApp</button>
+              <p class="fineprint">Pembayaran tunai, transfer, atau QRIS setelah cucian diterima.</p>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Lacak -->
+  <!-- LAYANAN & HARGA -->
+  <section id="layanan" class="band">
+    <div class="wrap">
+      <div class="band-head">
+        <h2>Layanan &amp; harga.</h2>
+        <p class="lede">Minimal 3 kg untuk layanan kiloan. Harga sudah termasuk deterjen dan pewangi.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-block">
+          <p class="price-head">Per kilo</p>
+          <ul class="price-list">
+            <li><span class="p-name">Cuci Kering</span><span class="p-note">1 hari</span><span class="p-price">Rp7.000<span>/kg</span></span></li>
+            <li><span class="p-name">Cuci + Setrika <em class="tag">paling laris</em></span><span class="p-note">1 hari</span><span class="p-price">Rp10.000<span>/kg</span></span></li>
+            <li><span class="p-name">Setrika Saja</span><span class="p-note">1 hari</span><span class="p-price">Rp6.000<span>/kg</span></span></li>
+            <li><span class="p-name">Express 6 Jam</span><span class="p-note">6 jam</span><span class="p-price">Rp15.000<span>/kg</span></span></li>
+          </ul>
+        </div>
+        <div class="price-block">
+          <p class="price-head">Per satuan</p>
+          <ul class="price-list">
+            <li><span class="p-name">Bed Cover</span><span class="p-note">2 hari</span><span class="p-price">Rp25.000<span>/pcs</span></span></li>
+            <li><span class="p-name">Selimut</span><span class="p-note">1 hari</span><span class="p-price">Rp20.000<span>/pcs</span></span></li>
+            <li><span class="p-name">Sepatu</span><span class="p-note">2 hari</span><span class="p-price">Rp30.000<span>/pasang</span></span></li>
+            <li><span class="p-name">Boneka</span><span class="p-note">2 hari</span><span class="p-price">Rp15.000<span>/pcs</span></span></li>
+            <li><span class="p-name">Antar-jemput &lt; 3 km</span><span class="p-note">gratis</span><span class="p-price">Rp0</span></li>
+            <li><span class="p-name">Di luar 3 km</span><span class="p-note">per pengantaran</span><span class="p-price">Rp5.000</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARA PESAN -->
+  <section class="band band-line">
+    <div class="wrap">
+      <div class="band-head">
+        <h2>Tiganya tanpa repot.</h2>
+        <p class="lede">Tinggal hitung, kirim order, kurir yang jalan.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="step-num">1</span><h3>Hitung &amp; kirim order</h3><p>Pilih layanan, isi berat dan alamat, lalu kirim lewat WhatsApp.</p></li>
+        <li><span class="step-num">2</span><h3>Dijemput kurir</h3><p>Cucian diambil di alamatmu, gratis radius 3 km dari outlet.</p></li>
+        <li><span class="step-num">3</span><h3>Diantar balik</h3><p>Dicuci, dikeringkan, disetrika, dilipat — lalu diantar ke rumah.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <section id="galeri" class="band gallery">
+    <div class="wrap">
+      <div class="band-head">
+        <h2>Hasil cucian.</h2>
+        <p class="lede">Putih tetap putih, licin, dan wangi.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure>
+          <img src="assets/gallery/towels.jpg" alt="Tumpukan handuk putih bersih yang dilipat rapi" width="1920" height="1280">
+          <figcaption><span>Handuk</span>dilipat rapi</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/gallery/shirts.jpg" alt="Kemeja putih bersih tergantung rapi di gantungan" loading="lazy" width="1920" height="1280">
+          <figcaption><span>Kemeja</span>disetrika licin</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/gallery/sneakers.jpg" alt="Sepatu putih bersih setelah dicuci" loading="lazy" width="1920" height="1280">
+          <figcaption><span>Sepatu</span>bersih lagi</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- LACAK -->
   <section id="lacak" class="track">
-    <div class="wrap center reveal">
+    <div class="wrap track-inner">
       <h2>Lacak cucianmu.</h2>
-      <p class="lead">Masukkan kode order dari struk, contoh: <button type="button" class="linklike" data-code="LDR-1001">LDR-1001</button>, <button type="button" class="linklike" data-code="LDR-1002">LDR-1002</button>, <button type="button" class="linklike" data-code="LDR-1003">LDR-1003</button></p>
-      <form id="track-form">
+      <p class="track-sub">Masukkan kode di struk. Untuk demo:
+        <button type="button" class="linklike" data-code="LDR-1001">LDR-1001</button>
+        <button type="button" class="linklike" data-code="LDR-1002">LDR-1002</button>
+        <button type="button" class="linklike" data-code="LDR-1003">LDR-1003</button>
+      </p>
+      <form id="track-form" class="track-form">
+        <label class="sr-only" for="track-code">Kode order</label>
         <input type="text" id="track-code" placeholder="LDR-1001" autocomplete="off">
-        <button class="btn" type="submit">Lacak</button>
+        <button class="pill pill-invert" type="submit">Lacak</button>
       </form>
       <div id="track-result" class="track-result" hidden></div>
     </div>
   </section>
 
+  <!-- TENTANG + TESTIMONI -->
+  <section id="tentang" class="band">
+    <div class="wrap about">
+      <div>
+        <h2>Laundry kiloan yang jujur soal harga.</h2>
+        <p class="lede">Kami cuci, keringkan, setrika, dan lipat cucianmu supaya bersih, wangi, dan rapi. Bisa antar-jemput, bisa lacak status cucian.</p>
+        <p class="fineprint">Butuh laundry untuk kantor atau rumah? Hubungi kami lewat WhatsApp untuk diskusi kebutuhanmu.</p>
+        <a class="pill pill-ghost" href="https://wa.me/6281234567890" target="_blank" rel="noopener">Tanya lewat WhatsApp</a>
+      </div>
+      <blockquote class="quotes">
+        <p>“Baju kantor balik wangi dan licin banget. Langganan dari 2023.”</p>
+        <footer>— Rina, Cirebon</footer>
+        <p>“Express-nya beneran 6 jam. Masuk jam 9, jam 3 sudah bisa diambil.”</p>
+        <footer>— Dimas, Kesambi</footer>
+        <p>“Sepatu putih yang sudah kuning balik bersih lagi.”</p>
+        <footer>— Sinta, Lemahwungkuk</footer>
+      </blockquote>
+    </div>
+  </section>
+
   <!-- FAQ -->
-  <section id="faq" class="faq section-gray">
-    <div class="wrap reveal">
-      <h2 class="center">Pertanyaan umum.</h2>
-      <details><summary>Berapa minimal order?</summary><p>Minimal 3 kg untuk layanan kiloan. Di bawah itu tetap dihitung 3 kg.</p></details>
-      <details><summary>Apakah ada antar-jemput?</summary><p>Ada, gratis radius 3 km dari outlet. Di luar itu tambah Rp5.000 per pengantaran.</p></details>
-      <details><summary>Bagaimana kalau ada pakaian rusak atau hilang?</summary><p>Kami garansi cuci ulang kalau hasil kurang bersih, dan ganti rugi sesuai ketentuan di struk untuk kehilangan/kerusakan karena proses kami.</p></details>
-      <details><summary>Bisa bayar pakai apa?</summary><p>Tunai, transfer bank, dan QRIS.</p></details>
-      <details><summary>Berapa lama express selesai?</summary><p>Paket Express 6 Jam selesai maksimal 6 jam setelah cucian diterima.</p></details>
-      <details><summary>Bisa untuk laundry kantor?</summary><p>Bisa. Hubungi kami lewat WhatsApp untuk diskusi kebutuhan laundry kantormu.</p></details>
+  <section id="faq" class="band band-line">
+    <div class="wrap faq">
+      <div class="band-head">
+        <h2>Pertanyaan umum.</h2>
+      </div>
+      <div class="faq-list">
+        <details><summary>Berapa minimal order?</summary><p>Minimal 3 kg untuk layanan kiloan. Di bawah itu tetap dihitung 3 kg.</p></details>
+        <details><summary>Apakah ada antar-jemput?</summary><p>Ada, gratis radius 3 km dari outlet. Di luar itu tambah Rp5.000 per pengantaran.</p></details>
+        <details><summary>Bagaimana kalau ada pakaian rusak atau hilang?</summary><p>Kami garansi cuci ulang kalau hasil kurang bersih, dan ganti rugi sesuai ketentuan di struk untuk kehilangan atau kerusakan karena proses kami.</p></details>
+        <details><summary>Bisa bayar pakai apa?</summary><p>Tunai, transfer bank, dan QRIS.</p></details>
+        <details><summary>Berapa lama express selesai?</summary><p>Paket Express 6 Jam selesai maksimal 6 jam setelah cucian diterima.</p></details>
+        <details><summary>Bisa untuk laundry kantor?</summary><p>Bisa. Hubungi kami lewat WhatsApp untuk diskusi kebutuhan laundry kantormu.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="band cta">
+    <div class="wrap cta-inner">
+      <h2>Cucian menumpuk? Kirim sekarang.</h2>
+      <a class="pill pill-lg" href="#order">Hitung &amp; order</a>
     </div>
   </section>
 </main>
 
-  <div class="marquee marquee-bottom" aria-hidden="true">
-    <div class="marquee-track">
-      <div class="marquee-group"><span>Cuci</span><span>Setrika</span><span>Lipat</span><span>Antar-jemput</span><span>Lacak</span><span>Bayar QRIS</span></div>
-      <div class="marquee-group"><span>Cuci</span><span>Setrika</span><span>Lipat</span><span>Antar-jemput</span><span>Lacak</span><span>Bayar QRIS</span></div>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-brand">LaundryKu</p>
+      <p>Jl. Contoh No. 12, Cirebon.<br>Buka setiap hari 08.00–21.00.</p>
+    </div>
+    <div>
+      <p class="footer-label">Kontak</p>
+      <a href="https://wa.me/6281234567890" rel="noopener">WhatsApp 0812-3456-7890</a>
+      <a href="#top">Instagram @laundryku</a>
+    </div>
+    <div>
+      <p class="footer-label">Halaman</p>
+      <a href="#layanan">Layanan &amp; harga</a>
+      <a href="#lacak">Lacak cucian</a>
+      <a href="#faq">FAQ</a>
     </div>
   </div>
-
-<a class="wa-fab" href="https://wa.me/6281234567890" target="_blank" rel="noopener" aria-label="Order via WhatsApp">WA</a>
-
-<footer>
-  <div class="wrap">
-    <p>LaundryKu — Jl. Contoh No. 12, Cirebon. Buka setiap hari 08.00–21.00.</p>
-    <div class="foot-links">
-      <a href="https://wa.me/6281234567890" rel="noopener">WhatsApp: 0812-3456-7890</a>
-      <a href="#top">Instagram: @laundryku</a>
-    </div>
-    <hr>
+  <div class="wrap footer-legal">
     <p>Web demo / project portfolio. Nomor WhatsApp masih contoh — ganti di <code>script.js</code> (WA_NUMBER) sebelum dipakai.</p>
-    <p>Copyright © 2026 LaundryKu.</p>
+    <p>© 2026 LaundryKu</p>
   </div>
 </footer>
 
 <script src="assets/vendor/zdog.dist.min.js"></script>
-<script src="script.js?v=5.5"></script>
-<script type="module" src="hero-3d.js?v=6.5"></script>
+<script src="script.js?v=8.0"></script>
+<script type="module" src="hero-3d.js?v=8.0"></script>
 </body>
 </html>

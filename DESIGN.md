@@ -1,58 +1,87 @@
-# LaundryKu — DESIGN.md (v5, 2026-11-23)
+# LaundryKu — DESIGN.md (v8, 2026-11-28)
 
-Dunia visual: **Apple, hitam-putih** (pin user: "seperti website Apple, warna hitam putih").
-Tipografi sistem (SF Pro di perangkat Apple, system sans di lainnya) — tanpa webfont.
-Section bergantian hitam / putih / abu #f5f5f7. Tanpa warna lain.
+Dunia visual: **Kertas & Peta** — situs laundry delivery yang dibangun seperti dokumen
+kerja yang rapi: kertas putih-hangat, tinta hitam, garis rambut, dan satu peta jalan
+yang menggambar rutenya sendiri.
+
+Pin user: **monokrom ketat** (hitam/putih/abu, tanpa warna lain). Dunia v8 ini
+menggantikan "Apple hitam-putih" (v5). Kategori canon (laundry delivery) dikerjakan
+penuh, bukan template SaaS dan bukan dekorasi Apple.
+
+Arah awal: shot Dribbble "Laundry Delivery Website" (Nixtio) — split hero, objek besar
+di kiri, panel peta dengan pin di kanan, tombol pil hitam. Terjemahan monokrom: peta
+jadi peta jalan tinta di atas kertas, bukan peta pastel.
 
 ## Tokens
-- `--black: #000` (hero + footer gelap) / `--ink: #1d1d1f` (teks + tombol)
-- `--gray: #6e6e73` (teks sekunder, 5.07 di putih / 4.66 di #f5f5f7)
-- `--gray-light: #a1a1a6` (teks sekunder di hitam, 8.16)
-- `--bg: #fff` / `--bg-gray: #f5f5f7` (section abu + input)
-- `--line: rgba(0,0,0,0.12)` hairline / `--line-light: rgba(255,255,255,0.18)`
 
-Kontras terverifikasi (WCAG): #6e6e73/putih 5.07, #a1a1a6/hitam 8.16,
-#1d1d1f/#f5f5f7 15.46. Abu #86868b (3.62) dilarang untuk teks kecil.
+| Token | Nilai | Pakai |
+| --- | --- | --- |
+| `--ink` | `#0a0a0a` | teks, pil, garis tebal, band gelap |
+| `--ink-2` | `#2a2a2a` | teks sekunder |
+| `--mute` | `#6b6b6b` | teks kecil, label, catatan (5.3:1 di `--paper`) |
+| `--paper` | `#faf9f6` | latar halaman |
+| `--card` | `#ffffff` | kartu order, input saat fokus |
+| `--fill` | `#f0efec` | input, panel hero kanan |
+| `--line` | `#e4e3df` | hairline antar baris |
+| `--line-2` | `#d3d2cc` | garis kontrol (stepper, tag) |
 
-## Struktur (v5 — A + C, user: "terlalu polos")
-- Navigasi: bar tipis fixed full-width, blur (rgba(22,22,23,0.8) + backdrop blur 20px), link 12px.
-- Hero hitam DRAMATIS: gradasi radial abu gelap (#262628 → #000), headline 96px semibold
-  ("Cucian bersih, wangi, selesai tepat waktu."), subhead abu, link teks "Hitung & order ›" /
-  "Lacak cucian ›", harga "Mulai dari Rp7.000/kg.", mesin cuci Zdog besar di tengah di atas
-  cahaya radial lebih kuat, gelembung Three.js putih 40 buah (opacity 0.22).
-- Tile promo 2 kolom (Apple): "Express 6 Jam." (hitam) + "Antar-Jemput Gratis." (abu).
-- Cara order: 4 kolom minimal (judul "1. Order" dst + teks abu).
-- Layanan: baris hairline di #f5f5f7, nama 32px semibold, harga kanan.
-- Harga: tabel minimal, header kecil uppercase abu, tanpa blok warna.
-- Galeri "Hasil cucian.": 3 foto hitam-putih (assets/gallery/towels.jpg, shirts.jpg,
-  sneakers.jpg — hasil generate, 1920x1280, filter grayscale(1) sebagai pengaman).
-- Testimoni "Kata mereka.": 3 kutipan fiktif demo (Rina, Dimas, Sinta).
-- Order: kartu putih di #f5f5f7, input abu tanpa border, tombol pil hitam.
-- Lacak: input pil abu + tombol hitam, hasil di panel abu.
-- FAQ: divider hairline, summary 21px semibold.
-- Footer: small print 12px abu ala Apple, tanpa wordmark raksasa.
-- Reveal saat scroll: .reveal (opacity 0 → 1, translateY 24px → 0, 0.7s) via
-  IntersectionObserver di script.js; hanya aktif kalau JS jalan (class .js di <html>),
-  nonaktif total kalau prefers-reduced-motion.
+Tipografi: **Inter Tight** self-hosted (`assets/fonts/*.woff2`, variabel 400–700).
+Display 600, tracking −0.035em; label uppercase 12px; angka `tabular-nums`.
+
+## Struktur
+
+- **Header** — sticky, kertas 92% + blur, hairline muncul saat scroll; wordmark +
+  glyph gelembung SVG, nav (Layanan/Galeri/Lacak/FAQ), pil hitam "Order sekarang".
+- **Hero** — bingkai dua kolom di dalam border + radius 26px, tinggi
+  `clamp(600px, 82vh, 780px)`:
+  - Kiri: lede, objek mesin cuci **Zdog** monokrom (drag-rotate) sebagai fokus,
+    H1 3.75rem, subteks, baris bukti "Minimal 3 kg · 6 jam · gratis < 3 km".
+  - Kanan: panel `--fill`, isi **band peta** (rasio 960×340, ±235px tinggi) di atas
+    **kartu order** selebar panel. Peta: blok abu, jalan diagonal, label wilayah
+    (KESAMBI, KEJAKSAN, LEMAHWUNGKUK, HARJAMUKTI), pin rumah → outlet → rumah.
+  - Kartu order: layanan + berat, tambahan satuan (stepper 2×2), nama / antar-jemput /
+    alamat, total besar di baris sendiri, pil hitam full-width, catatan pembayaran.
+- **Layanan & harga** — dua kolom daftar harga (per kilo / per satuan), hairline, baris
+  pertama bergaris tinta; harga rata kanan `tabular-nums`; tag "paling laris".
+- **Cara pesan** — 3 langkah, garis tinta di atas tiap kolom, nomor kecil.
+- **Galeri** — 3 foto 4:5 `grayscale(1)`, caption nama + keterangan.
+- **Lacak** — band tinta penuh: input kode uppercase, timeline 4 langkah, panel hasil.
+- **Tentang + testimoni** — dua kolom; testimoni kutipan dengan garis kiri.
+- **FAQ** — `details/summary`, hairline, tanda + berputar saat buka.
+- **CTA** — band tinta, H2 + pil kertas.
+- **Footer** — 3 kolom (alamat/jam, kontak, halaman) + baris legal catatan demo.
+
+## Gerak
+
+Satu momen yang dikarang: **rute peta menggambar dirinya** (`stroke-dashoffset` dari
+`getTotalLength()`), pin muncul berurutan 0.2s / 1.4s / 2.5s. Tidak ada entrance
+seragam per section. Semua mati total di `prefers-reduced-motion`.
 
 ## Aturan
-- Tanpa eyebrow di atas heading (ban Impeccable). Tanpa marquee. Tanpa blob.
-- Link memakai warna teks + "›", bukan biru (dunia ini hitam-putih ketat).
-- 3D monokrom: washer abu-putih (#f5f5f7, panel #1d1d1f, tombol #6e6e73),
-  gelembung putih. Flubber tidak dipakai lagi (file dihapus dari repo).
-- Aset statis pakai cache-busting ?v=X.Y — naikkan tiap rombak besar (pelajaran v4.2:
-  browser sempat memuat HTML baru + CSS/JS lama yang ke-cache; DOM baru + tampilan lama
-  = cache CSS/JS, bukan deploy gagal). Setelah push, Pages butuh 1-3 menit propagasi;
-  verifikasi isi, bukan cuma status 200.
-- Header v5.1: transparan di atas (scrim gradasi hitam 55% → 0 di belakang teks),
-  gelap blur saat scroll (.scrolled), sembunyi halus (translateY -100%, 0.4s) saat
-  scroll ke bawah, muncul lagi saat scroll ke atas; nonaktif transisi kalau
-  prefers-reduced-motion. Aset ?v=5.1.
-- Catatan detektor: detect file-mode melaporkan 1 temuan low-contrast (teks header
-  #f5f5f7 "on #ffffff") — FALSE POSITIVE dari model statis: header fixed transparan
-  di atas hero HITAM (kontras nyata ~15:1) dan berlatar blur gelap saat scroll.
-  Model tidak bisa melihat hero di belakang header fixed. Scrim ditambahkan sebagai
-  perbaikan nyata (gelembung putih di belakang link 12px), bukan untuk detektor.
-- Riwayat: v3 "Porthole & Foam" (teal + kuning, Bricolage) → v4 Apple hitam-putih
-  (commit ce1e4e8; header full-width c789438; cache-busting 450c27c) → v5 A+C
-  (b237c42) → v5.1 header sembunyi (6df66a5 + scrim).
+
+- Monokrom ketat: tak ada hue di luar abu netral; foto dikunci `grayscale(1)`.
+- Tanpa eyebrow di atas heading, tanpa marquee. Gelembung Three.js dihapus v8 bersama
+  `three.core.js` / `three.module.js`; hanya Zdog yang tersisa (297KB).
+- Ikon digambar sebagai SVG (glyph gelembung, pin, rumah, mesin cuci), bukan emoji.
+- Objek 3D memakai palet tinta: bodi `#f2f1ed`, panel `#0a0a0a`, tombol `#6b6b6b`.
+- Fokus keyboard `:focus-visible` ring 2px tinta offset 3px; ada skip link ke form;
+  stepper punya `aria-label` dan nilai `aria-live`.
+- Cache-busting `?v=X.Y` untuk CSS/JS — naikkan tiap aset berubah (pelajaran v4.2:
+  HTML baru + CSS/JS lama dari cache = tampilan campur, bukan deploy gagal). Setelah
+  push, Pages butuh 1–3 menit propagasi; verifikasi isi, bukan status 200.
+
+## Catatan detektor (v8, `impeccable detect --changed`)
+
+- `overused-font` ×3: model menghitung deklarasi `font-family`, termasuk dua blok
+  `@font-face`. Satu keluarga self-hosted bukan pelanggaran; false positive.
+- `cramped-padding` ×5 pada `.band`, `.track`, `.quotes`: model statis membaca CSS
+  tanpa menghitung padding. Terukur di DOM: `.band` padding 112px atas/bawah,
+  `.track` 104px, `.quotes` padding-left 30px dan 4px atas/bawah.
+- Temuan nyata sudah diperbaiki: kontras placeholder 4.49:1 → `#605e59` (≥4.5),
+  label 10.88px → 12px, tag 9.92px → 12px, placeholder lacak → `#9c988e`.
+
+## Riwayat
+
+v3 "Porthole & Foam" (teal, Bricolage) → v4 Apple hitam-putih → v5 A+C (hero dramatis,
+Zdog besar, tile promo) → v5.1 header sembunyi → **v8 Kertas & Peta** (bingkai hero dua
+kolom, peta rute, daftar harga menu, font self-hosted, three.js dibuang).

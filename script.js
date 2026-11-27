@@ -1,4 +1,4 @@
-// LaundryKu — kalkulator harga, order WA, lacak order (demo, tanpa backend)
+// LaundryKu v8 — kalkulator harga, order WA, lacak order (demo, tanpa backend)
 // GANTI nomor ini dengan nomor WhatsApp laundry yang sebenarnya:
 const WA_NUMBER = "6281234567890";
 
@@ -36,10 +36,18 @@ document.querySelectorAll(".step-btn").forEach((btn) => btn.addEventListener("cl
   row.dataset.qty = qty;
   row.querySelector(".step-qty").textContent = qty;
   row.querySelector('[data-step="-1"]').disabled = qty === 0;
-  row.classList.toggle("active", qty > 0);
   calcTotal();
 }));
 calcTotal();
+
+// Alamat hanya relevan kalau dijemput
+(() => {
+  const pickup = document.getElementById("f-pickup");
+  const addressField = document.getElementById("address-field");
+  const sync = () => { addressField.hidden = pickup.value !== "jemput"; };
+  pickup.addEventListener("change", sync);
+  sync();
+})();
 
 document.getElementById("order-form").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -106,50 +114,34 @@ document.querySelectorAll("[data-code]").forEach((btn) =>
   })
 );
 
-// Reveal saat scroll (v5): konten muncul halus saat masuk viewport
+// Header: hairline saat scroll, sembunyi saat turun, muncul saat naik
 (function () {
-  document.documentElement.classList.add('js');
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-})();
-
-// Header v5.1: transparan di atas, gelap saat scroll, sembunyi saat scroll ke bawah,
-// muncul lagi saat scroll ke atas
-(function () {
-  var header = document.querySelector('.site-header');
+  var header = document.querySelector(".site-header");
   if (!header) return;
   var lastY = window.scrollY || 0;
   var ticking = false;
   function update() {
-    var y = window.scrollY || 0;
-    if (y > 10) { header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); }
-    if (y > lastY && y > 120) { header.classList.add('hidden'); }
-    else if (y < lastY) { header.classList.remove('hidden'); }
-    lastY = y;
+    header.classList.toggle("scrolled", window.scrollY > 10);
+    lastY = window.scrollY;
     ticking = false;
   }
-  window.addEventListener('scroll', function () {
+  window.addEventListener("scroll", function () {
     if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
   }, { passive: true });
 })();
 
-// Scroll progress bar
+// Momen gerak satu-satunya: rute peta menggambar diri, pin muncul berurutan
 (function () {
-  var bar = document.querySelector('.scroll-progress');
-  if (!bar) return;
-  function update() {
-    var max = document.documentElement.scrollHeight - innerHeight;
-    bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+  var route = document.querySelector(".route");
+  if (!route) return;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var pins = document.querySelectorAll(".pin");
+  if (reduce) {
+    pins.forEach(function (p) { p.classList.add("show"); });
+    return;
   }
-  addEventListener('scroll', update, { passive: true });
-  addEventListener('resize', update);
-  update();
+  var len = route.getTotalLength();
+  route.style.setProperty("--route-len", len);
+  route.classList.add("draw");
+  pins.forEach(function (p) { p.classList.add("show"); });
 })();
