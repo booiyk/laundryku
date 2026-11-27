@@ -256,6 +256,8 @@ footer .foot-links a:hover { text-decoration: underline; }
 @media (max-width: 520px) {
   .how-grid { grid-template-columns: 1fr; }
   .hero-links a { font-size: 17px; }
+  /* Tabel harga dipampat supaya tidak melebar di layar ~320px */
+  .pricing th, .pricing td { font-size: 14px; padding: 8px 2px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
