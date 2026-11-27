@@ -6,7 +6,11 @@
 <title>LaundryKu — Laundry Kiloan Cepat, Bersih &amp; Wangi</title>
 <meta name="description" content="LaundryKu — laundry kiloan di Cirebon. Cuci kering, cuci + setrika, express 6 jam. Antar-jemput gratis, lacak cucian online, order via WhatsApp.">
 <meta name="theme-color" content="#000000">
-<link rel="stylesheet" href="style.css?v=6.9">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LaundryKu — Laundry Kiloan di Cirebon">
+<meta property="og:description" content="Cuci kering, cuci + setrika, express 6 jam. Antar-jemput gratis radius 3 km dan lacak status cucian.">
+<meta property="og:image" content="https://booiyk.github.io/laundryku/assets/gallery/towels.jpg">
+<link rel="stylesheet" href="style.css?v=7.0">
 <script type="importmap">
 { "imports": { "three": "./assets/vendor/three.module.js" } }
 </script>
@@ -31,7 +35,7 @@
   <!-- Hero hitam — headline + mesin cuci 3D sebagai produk, gelembung Three.js -->
   <section class="hero section-black">
     <canvas id="bubbles" aria-hidden="true"></canvas>
-    <div class="hero-inner reveal">
+    <div class="hero-inner">
       <h1>Cucian bersih, wangi, selesai tepat waktu.</h1>
       <p class="subhead">Laundry kiloan di Cirebon. Antar-jemput gratis radius 3 km, express 6 jam selesai, dan status cucian bisa dilacak online.</p>
       <div class="hero-links">
@@ -51,24 +55,6 @@
     </div>
   </section>
 
-
-  <!-- Tile promo 2 kolom -->
-  <section class="tiles">
-    <div class="wrap reveal">
-      <div class="tiles-grid">
-        <a class="tile tile-dark" href="#order">
-          <h2>Express 6 Jam.</h2>
-          <p>Masuk pagi, sore sudah bisa diambil. Cuci + Setrika, tetap rapi dan wangi.</p>
-          <span class="tile-link">Pesan Express</span>
-        </a>
-        <a class="tile tile-light" href="#order">
-          <h2>Antar-Jemput Gratis.</h2>
-          <p>Gratis radius 3 km dari outlet. Di luar itu tambah Rp5.000 per pengantaran.</p>
-          <span class="tile-link">Order sekarang</span>
-        </a>
-      </div>
-    </div>
-  </section>
 
   <!-- Kenapa LaundryKu -->
   <section class="why">
@@ -298,17 +284,18 @@
   </section>
 </main>
 
+<a class="wa-fab" href="https://wa.me/6281234567890" target="_blank" rel="noopener" aria-label="Order via WhatsApp">WA</a>
+
 <footer>
   <div class="wrap">
     <p>LaundryKu — Jl. Contoh No. 12, Cirebon. Buka setiap hari 08.00–21.00.</p>
     <div class="foot-links">
-      <a href="https://wa.me/6281234567890">WhatsApp: 0812-3456-7890</a>
+      <a href="https://wa.me/6281234567890" rel="noopener">WhatsApp: 0812-3456-7890</a>
       <a href="#top">Instagram: @laundryku</a>
     </div>
     <hr>
-    <p>Web demo / project portfolio. Nomor WhatsApp di atas masih contoh, ganti di <code>script.js</code> (WA_NUMBER) sebelum dipakai beneran.</p>
-    <p>Dibangun dengan Three.js (gelembung 3D) dan Zdog (mesin cuci 3D), dari daftar 20 repo video/3D shmidtqq. Video promo dirender dengan Remotion + FFmpeg, aset 3D disiapkan di Blender.</p>
-    <p>Copyright © 2026 LaundryKu. Project demo. Dibuat sebagai latihan web laundry.</p>
+    <p>Web demo / project portfolio. Nomor WhatsApp masih contoh — ganti di <code>script.js</code> (WA_NUMBER) sebelum dipakai.</p>
+    <p>Copyright © 2026 LaundryKu.</p>
   </div>
 </footer>
 
